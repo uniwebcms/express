@@ -1,7 +1,9 @@
-import Container from './ui/Container';
-import MediaHeader from './ui/MediaHeader';
-import LinkedProfile from './components/LinkedProfile';
+import Container from './components/Container';
+import MediaHeader from './components/MediaHeader';
+import LinkedProfile from './view/LinkedProfilePage';
+import LanguageToggle from './components/LanguageToggle';
+import SiteSearch from './components/SiteSearch';
 
-export { Container, MediaHeader };
+export { Container, MediaHeader, LanguageToggle, SiteSearch };
 
 export { LinkedProfile };

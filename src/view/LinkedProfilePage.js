@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../ui/Container';
+import Container from '../components/Container';
 import {
     Link,
     ProfileFilter,
@@ -7,7 +7,7 @@ import {
     useLinkedProfileFilterState,
     ProfileImage
 } from '@uniwebcms/module-sdk';
-import MediaHeader from '../ui/MediaHeader';
+import MediaHeader from '../components/MediaHeader';
 
 const Card = ({ profile, properties = {} }) => {
     const head = profile.getBasicInfo();
