@@ -1,8 +1,8 @@
 # Uniweb Express UI
 
-[Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and use it to build a website. The logic that is necessary for creating the user interface of a website is expected to exists in **web components** that are powered by the Uniweb web engine.
+[Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and use it to build a website. The logic that is necessary for creating the user interface of a website exists in **web components** that are powered by the Uniweb engine.
 
-A Uniweb website templates can be created by anyone and requires no technincal knowledge. That is possible because the website template is simply a set of options that guide the process of builing a website automatically. We refer to that process as **self-builing websites**.
+A Uniweb **website template** can be created by anyone and requires no technincal knowledge. That is possible because the website template is simply a set of options that guide the process of builing a website automatically. We refer to that process as **self-builing websites**.
 
 **Uniweb Express UI** is a library of components that can be referenced from website templates in order to define self-builing websites.
 
