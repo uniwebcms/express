@@ -1,6 +1,6 @@
 # Uniweb Express UI
 
-[Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and use it to build a website. The logic that is necessary for creating the user interface of a website exists in **web components** that are powered by the Uniweb engine.
+[Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and and build websites from templates. The logic that is necessary for creating the user interface of a website exists at the level of **web components** that are powered by the Uniweb engine.
 
 A Uniweb **website template** can be created without technical knowledge thanks to the fact that it is simply a set of options that guide the process of building a website automatically. We refer to that process as **self-building websites**. A website template specifies the web components that are needed to define a self-building website.
 
@@ -18,7 +18,7 @@ Continuing our navbar example, we can assume that the template defines a Project
 
 In summary, the engine allowed us to connect the abstract definition of a website structure and dependencies with the concrete data instantiation of a specific website in a way that helps us have a complete view of the site when rendering its navbar.
 
-## The Uniweb Module SDk
+## The Uniweb Module SDK
 
 The integration of custom components into a Uniweb system is done via Webpack Federated Modules. The [Uniweb Module SDK](https://github.com/uniwebcms/uniweb-module-sdk) is a software development kit that provides a thin wrapper around the underlying Uniweb JavaScript engine. The SDK provides a tailored and consistent API layer for the underlying web engine.
 
