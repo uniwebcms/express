@@ -14,9 +14,9 @@ Because the engine has access to both the template and the website data it can p
 
 The conditional inclusion of navbar menus presents an interesting problem because the main logic for rendering pages is located in independent components that are unrelated to the navbar. This is a challenge that shows how the web engine is crucial for coordinating components so that the result is more than the sum of the parts.
 
-Continuing our navbar example, we can assume that the template defines a Projects page with a component that requires the data of "linked projects". Because the web engine is aware of this dependency, it can make it use of it and expose whether the Projects page has projects to show or not. In turn, the navbar can use the information provided by the engine to decide whether a Projects menu option is necessary or not.
+Continuing our navbar example, we can assume that the template defines a Projects page with a component that requests its input data to be the linked projects of the website's main content. Because the web engine is aware of this dependency, it can make it use of it and expose whether the Projects page has projects to show or not. In turn, the navbar can use the information provided by the engine to decide whether a Projects menu option is necessary or not.
 
-In summary, the engine allowed us to connect the abstract definition of a website structure and dependencies with the concrete data instantiation of a specific website in a way that helps us have a complete view of the site when rendering its navbar.
+In summary, the engine allows us to connect the abstract definition of a website structure and dependencies with the concrete data instantiation of a specific website in a way that helps us have a complete view of the site when rendering its navbar.
 
 ## The Uniweb Module SDK
 
