@@ -1,4 +1,5 @@
 import React from 'react';
+import { website } from '../core';
 
 const getTypeByExt = (ext) => {
     const pic = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
@@ -41,7 +42,7 @@ const MediaBackground = ({ src, alt }) => {
 };
 
 export default function MediaHeader(props) {
-    const { page, website, width = '100%', height = '600px' } = props;
+    const { page, width = '100%', height = '600px' } = props;
 
     const webProfile = website.getWebsiteProfile();
 

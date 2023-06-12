@@ -1,8 +1,26 @@
+/**
+ * Webpage language toggle widget
+ * @module LanguageToggle
+ */
+
 import React from 'react';
-import { website } from '@uniwebcms/module-sdk';
+import { website, localize } from '../core';
 import PopoverMenu from './PopoverMenu';
 import { MdLanguage } from 'react-icons/md';
 
+/**
+ * Create a language toggle widget for the active website
+ *
+ * @example
+ * function MyComponent() {
+ *    return (
+ *       <LanguageToggle />
+ *    );
+ * }
+ *
+ * @component LanguageToggle
+ * @returns {function} A language toggle component.
+ */
 export default function (props) {
     const currentLang = website.getLanguage();
     const langPreference = website.getLanguagePreference();
@@ -11,13 +29,13 @@ export default function (props) {
 
     if (langPreference === 'bilingual') {
         langOptions = [
-            { label: website.localize({ en: 'English', fr: 'Anglais' }), value: 'en' },
-            { label: website.localize({ en: 'French', fr: 'Français' }), value: 'fr' }
+            { label: localize({ en: 'English', fr: 'Anglais' }), value: 'en' },
+            { label: localize({ en: 'French', fr: 'Français' }), value: 'fr' }
         ];
     } else if (langPreference === 'en') {
-        langOptions = [{ label: website.localize({ en: 'English', fr: 'Anglais' }), value: 'en' }];
+        langOptions = [{ label: localize({ en: 'English', fr: 'Anglais' }), value: 'en' }];
     } else if (langPreference === 'fr') {
-        langOptions = [{ label: website.localize({ en: 'French', fr: 'Français' }), value: 'fr' }];
+        langOptions = [{ label: localize({ en: 'French', fr: 'Français' }), value: 'fr' }];
     }
 
     const menu = langOptions.map((opt) => (
