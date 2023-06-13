@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { HiSearch, HiX } from 'react-icons/hi';
-import { localize } from '../core';
+import { website } from '../core';
 
 /**
  *
@@ -36,7 +36,7 @@ export default function (props) {
     const style = { minWidth: '36px', height: '36px', ...props.style };
     const className = props.className;
 
-    const search = localize({ en: 'Search', fr: 'Recherche' });
+    const search = website.localize({ en: 'Search', fr: 'Recherche' });
 
     const placeholderText = placeholder || search;
 

@@ -1,6 +1,6 @@
 /**
  * Filter profile lists.
- * @module ProfileFilter
+ * @module Filter
  */
 
 import React, { cloneElement } from 'react';
@@ -16,11 +16,11 @@ import SearchBox from './SearchBox';
  * @example
  * function MyComponent() {
  *   return (
- *       <ProfileFilter.Menu filter={filter} setFilter={setFilter} />
+ *       <Filter.Menu filter={filter} setFilter={setFilter} />
  *   );
  * }
  *
- * @component ProfileFilter.Menu
+ * @component Filter.Menu
  * @prop {Object} filter - The filter state
  * @prop {function} setFilter - The set method to update state
  * @returns {function} A filter component.
@@ -167,11 +167,11 @@ function Menu(props) {
  * @example
  * function MyComponent() {
  *   return (
- *       <ProfileFilter.Search filter={filter} setFilter={setFilter} />
+ *       <Filter.Search filter={filter} setFilter={setFilter} />
  *   );
  * }
  *
- * @component ProfileFilter.Search
+ * @component Filter.Search
  * @prop {Object} filter - The filter state
  * @prop {function} setFilter - The set method to update state
  * @returns {function} A search component.
@@ -202,19 +202,19 @@ export const Search = (props) => {
  * @example
  * function MyComponent() {
  *   return (
- *       <ProfileFilter filter={filter} setFilter={setFilter}>
- *          <ProfileFilter.Search/>
- *          <ProfileFilter.Menu/>
- *       </ProfileFilter>
+ *       <Filter filter={filter} setFilter={setFilter}>
+ *          <Filter.Search/>
+ *          <Filter.Menu/>
+ *       </Filter>
  *   );
  * }
  *
- * @component ProfileFilter
+ * @component Filter
  * @prop {object} filter - The filter state which return by useLinkedProfileFilterState
  * @prop {function} setFilter - The set method to update state, return by useLinkedProfileFilterState
  * @returns {function} A wrapper component.
  */
-export default function ProfileFilter({
+export default function Filter({
     as: Component = 'div',
     className = 'flex space-x-2.5 items-center',
     children,
@@ -230,5 +230,5 @@ export default function ProfileFilter({
     );
 }
 
-ProfileFilter.Menu = Menu;
-ProfileFilter.Search = Search;
+Filter.Menu = Menu;
+Filter.Search = Search;

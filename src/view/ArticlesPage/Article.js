@@ -5,11 +5,12 @@ import { getComponent, useGetProfile } from '@uniwebcms/module-sdk';
 const Editor = getComponent(null, 'ArticleEditor');
 
 export default function (props) {
-    const { website, browser } = props;
-    const { Link } = browser;
+    const { website } = props;
+
+    const { Link, useParams } = website.routingComponents;
     const activeLang = website.getLanguage();
 
-    const params = browser.getURLParams();
+    const params = useParams();
     const contentType = 'articles';
     const { contentId } = params;
 

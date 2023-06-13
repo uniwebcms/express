@@ -1,6 +1,5 @@
-import { website, Profile } from '@uniwebcms/module-sdk';
+import { website, Profile, getComponent } from '@uniwebcms/module-sdk';
 
 export { website, Profile };
 
-export const localize = website.localize;
-export const getComponent = website.getComponent;
+export { getComponent };
