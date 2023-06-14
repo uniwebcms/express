@@ -12,7 +12,8 @@
         "build:dev": "webpack --mode=development --watch",
         "build": "webpack --mode=production",
         "reinstall": "rm -rf ./node_modules && npm i",
-        "rebuild": "rm -rf ./dist && npm run build"
+        "rebuild": "rm -rf ./dist && npm run build",
+        "docs": "jsdoc2md src/components/*.js > docs/api.md"
     },
     "repository": {
         "type": "git",
@@ -34,6 +35,7 @@
         "babel-loader": "^8.2.2",
         "css-loader": "^5.2.0",
         "sass": "^1.50.0",
+        "jsdoc-to-markdown": "^8.0.0",
         "sass-loader": "^12.6.0",
         "style-loader": "^2.0.0",
         "webpack": "^5.74.0",
