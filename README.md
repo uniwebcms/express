@@ -36,7 +36,7 @@ The main building blocks provided by the engine fall into two categories: Custom
 - Image
 - Link
 
-By using the SDK, a component creator is freed from having to implement low-level functionality or deal with complex backend requests. Creating a link to a page or fetching an assets become simple tasks when using the SDK. Similarly, when using the Custom React Hooks, a component creator can enjoy a simplified managment of rendering states for common use cases.
+By using the SDK, a component creator is freed from having to implement low-level functionality or deal with complex backend requests. Creating a link to a page or fetching an asset become simple tasks when using the SDK. Similarly, when using the Custom React Hooks, a component creator can enjoy a simplified management of rendering states for common use cases.
 
 ## The Express UI Library
 
