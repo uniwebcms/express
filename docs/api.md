@@ -28,7 +28,7 @@
 <dt><a href="#module_Sorter">Sorter</a></dt>
 <dd><p>Sort the profile lists.</p>
 </dd>
-<dt><a href="#module_LinkedProfilePage">LinkedProfilePage</a></dt>
+<dt><a href="#module_view/LinkedProfilePage">view/LinkedProfilePage</a></dt>
 <dd><p>Render a page with a media header and filterable profile cards.</p>
 </dd>
 </dl>
@@ -374,24 +374,25 @@ function MyComponent() {
   );
 }
 ```
-<a name="module_LinkedProfilePage"></a>
+<a name="module_view/LinkedProfilePage"></a>
 
-## LinkedProfilePage
+## view/LinkedProfilePage
 Render a page with a media header and filterable profile cards.
 
-<a name="exp_module_LinkedProfilePage--module.exports"></a>
+<a name="exp_module_view/LinkedProfilePage--module.exports"></a>
 
 ### module.exports() ⇒ <code>function</code> ⏏
 Render a page with a media header and filterable profile cards.
 
 **Kind**: Exported function  
-**Component**:   
+**Returns**: <code>function</code> - A react component.  
+**Component**: LinkedProfilePage  
 **Properties**
 
 | Name | Type | Description |
 | --- | --- | --- |
-| profile | <code>Profile</code> | - |
-| block | <code>Block</code> | - |
-| page | <code>Page</code> | - |
-| website | <code>Website</code> | - |
+| profile | <code>Profile</code> | A data profile. |
+| block | <code>Block</code> | The template properties for the component. |
+| page | <code>Page</code> | The page that contains the block. |
+| website | <code>Website</code> | The website that contains the page. |
 

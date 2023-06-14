@@ -1,6 +1,6 @@
 /**
  * Render a page with a media header and filterable profile cards.
- * @module LinkedProfilePage
+ * @module view/LinkedProfilePage
  */
 
 import React from 'react';
@@ -71,12 +71,12 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
 /**
  * Render a page with a media header and filterable profile cards.
  * 
- * @component
- * @prop {Profile} profile - 
- * @prop {Block} block - 
- * @prop {Page} page - 
- * @prop {Website} website - 
- * @returns {function}
+ * @component LinkedProfilePage
+ * @prop {Profile} profile - A data profile.
+ * @prop {Block} block - The template properties for the component.
+ * @prop {Page} page - The page that contains the block.
+ * @prop {Website} website - The website that contains the page.
+ * @returns {function} A react component.
  */
 export default function (props) {
     const { profile, block, page, website } = props;
