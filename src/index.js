@@ -7,8 +7,7 @@ import Articles from './view/ArticlesPage';
 import Badge from './components/Badge';
 import Map from './components/Map';
 import SearchBox from './components/SearchBox';
-
-import Assets from './view/Assets';
+import AssetList from './view/AssetList';
 import Sorter from './components/Sorter';
 import Filter from './components/Filter';
 
@@ -24,4 +23,4 @@ export {
     Filter
 };
 
-export { LinkedProfile, Articles, Assets };
+export { LinkedProfile, Articles, AssetList };

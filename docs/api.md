@@ -28,6 +28,9 @@
 <dt><a href="#module_Sorter">Sorter</a></dt>
 <dd><p>Sort the profile lists.</p>
 </dd>
+<dt><a href="#module_view/AssetList">view/AssetList</a></dt>
+<dd><p>Render a page block that contains profile assets as cards and control widgets</p>
+</dd>
 <dt><a href="#module_view/LinkedProfilePage">view/LinkedProfilePage</a></dt>
 <dd><p>Render a page with a media header and filterable profile cards.</p>
 </dd>
@@ -365,6 +368,7 @@ A sorting widget to sort profiles.
 | --- | --- | --- |
 | filter | <code>object</code> | The filter state which return by useLinkedProfileFilterState |
 | setFilter | <code>function</code> | The set method to update state, return by useLinkedProfileFilterState |
+| menuCategories | <code>obj</code> | A map that defines what sorting category will be displayed in the menu |
 
 **Example**  
 ```js
@@ -374,6 +378,31 @@ function MyComponent() {
   );
 }
 ```
+<a name="module_view/AssetList"></a>
+
+## view/AssetList
+Render a page block that contains profile assets as cards and control widgets
+
+<a name="exp_module_view/AssetList--module.exports"></a>
+
+### module.exports() ⇒ <code>function</code> ⏏
+Render a wrapper for the cards and controls
+
+**Kind**: Exported function  
+**Returns**: <code>function</code> - A react component.  
+**Component**: AssetList  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| profile | <code>Profile</code> | A data profile. |
+| section | <code>string</code> | The name of the section which contains the assets. |
+| children | <code>ReactNode</code> | The child components to render. You can choose from [AssetList.Sort, AssetList.Search], or provide a custom React element. |
+| className | <code>string</code> | The className for the wrapper component. |
+| listWrapperClassName | <code>string</code> | The className for the wrapper component of the list of cards. |
+| controlWrapperClassName | <code>string</code> | The className for the wrapper component of the controls. |
+| options | <code>object</code> | Options for the list of cards, including the field name in the section representing the asset file, asset title, and asset description to be displayed. |
+
 <a name="module_view/LinkedProfilePage"></a>
 
 ## view/LinkedProfilePage

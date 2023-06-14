@@ -23,6 +23,7 @@ import { website } from '../core';
  * @component Sorter
  * @prop {object} filter - The filter state which return by useLinkedProfileFilterState
  * @prop {function} setFilter - The set method to update state, return by useLinkedProfileFilterState
+ * @prop {obj} menuCategories - A map that defines what sorting category will be displayed in the menu
  * @returns {function} A Sorting component.
  */
 export default function Sorter(props) {
@@ -30,6 +31,12 @@ export default function Sorter(props) {
         filter: { selection },
         setFilter
     } = props;
+
+    const menuCategories = {
+        title: true,
+        edittime: true,
+        ...props.menuCategories
+    };
 
     const { _sort, ...otherFilters } = selection;
 
@@ -54,67 +61,77 @@ export default function Sorter(props) {
         });
     };
 
-    const menu = [
-        <div key={'alpha'}>
-            <div className='px-2.5 py-1 sm:px-3 sm:py-1.5'>
-                <p className='text-sm font-semibold text-gray-900' title={'Alphabetically'}>
-                    {website.localize({ en: 'Alphabetically', fr: 'Par ordre alphabétique' })}
-                </p>
-            </div>
-            <Popover.Button as='div'>
-                <div
-                    className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
-                        _sort === 'title' ? 'bg-blue-200' : ''
-                    } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
-                    onClick={() => {
-                        handleSelect(_sort === 'title' ? '' : 'title');
-                    }}>
-                    <span>A - Z</span>
-                </div>
-            </Popover.Button>
-            <Popover.Button as='div'>
-                <div
-                    className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
-                        _sort === 'title-reverse' ? 'bg-blue-200' : ''
-                    } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
-                    onClick={() => {
-                        handleSelect(_sort === 'title-reverse' ? '' : 'title-reverse');
-                    }}>
-                    <span>Z - A</span>
-                </div>
-            </Popover.Button>
-        </div>,
+    const menu = [];
 
-        <div key={'edittime'}>
-            <div className='px-2.5 py-1 sm:px-3 sm:py-1.5'>
-                <p className='text-sm font-semibold text-gray-900' title={'Last Edited'}>
-                    {website.localize({ en: 'Last Edited', fr: 'Dernière édition' })}
-                </p>
+    if (menuCategories.title) {
+        menu.push(
+            <div key={'alpha'}>
+                <div className='px-2.5 py-1 sm:px-3 sm:py-1.5'>
+                    <p className='text-sm font-semibold text-gray-900' title={'Alphabetically'}>
+                        {website.localize({ en: 'Alphabetically', fr: 'Par ordre alphabétique' })}
+                    </p>
+                </div>
+                <Popover.Button as='div'>
+                    <div
+                        className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
+                            _sort === 'title' ? 'bg-blue-200' : ''
+                        } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
+                        onClick={() => {
+                            handleSelect(_sort === 'title' ? '' : 'title');
+                        }}>
+                        <span>A - Z</span>
+                    </div>
+                </Popover.Button>
+                <Popover.Button as='div'>
+                    <div
+                        className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
+                            _sort === 'title-reverse' ? 'bg-blue-200' : ''
+                        } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
+                        onClick={() => {
+                            handleSelect(_sort === 'title-reverse' ? '' : 'title-reverse');
+                        }}>
+                        <span>Z - A</span>
+                    </div>
+                </Popover.Button>
             </div>
-            <Popover.Button as='div'>
-                <div
-                    className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
-                        _sort === 'lastedit' ? 'bg-blue-200' : ''
-                    } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
-                    onClick={() => {
-                        handleSelect(_sort === 'lastedit' ? '' : 'lastedit');
-                    }}>
-                    <span>{website.localize({ en: 'Newest', fr: 'Le plus récent' })}</span>
+        );
+    }
+
+    if (menuCategories.edittime) {
+        menu.push(
+            <div key={'edittime'}>
+                <div className='px-2.5 py-1 sm:px-3 sm:py-1.5'>
+                    <p className='text-sm font-semibold text-gray-900' title={'Last Edited'}>
+                        {website.localize({ en: 'Last Edited', fr: 'Dernière édition' })}
+                    </p>
                 </div>
-            </Popover.Button>
-            <Popover.Button as='div'>
-                <div
-                    className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
-                        _sort === 'lastedit-reverse' ? 'bg-blue-200' : ''
-                    } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
-                    onClick={() => {
-                        handleSelect(_sort === 'lastedit-reverse' ? '' : 'lastedit-reverse');
-                    }}>
-                    <span>{website.localize({ en: 'Oldest', fr: 'Le plus ancien' })}</span>
-                </div>
-            </Popover.Button>
-        </div>
-    ];
+                <Popover.Button as='div'>
+                    <div
+                        className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
+                            _sort === 'lastedit' ? 'bg-blue-200' : ''
+                        } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
+                        onClick={() => {
+                            handleSelect(_sort === 'lastedit' ? '' : 'lastedit');
+                        }}>
+                        <span>{website.localize({ en: 'Newest', fr: 'Le plus récent' })}</span>
+                    </div>
+                </Popover.Button>
+                <Popover.Button as='div'>
+                    <div
+                        className={`px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 ${
+                            _sort === 'lastedit-reverse' ? 'bg-blue-200' : ''
+                        } text-sm hover:bg-gray-100 text-gray-700 hover:text-gray-900 cursor-pointer`}
+                        onClick={() => {
+                            handleSelect(_sort === 'lastedit-reverse' ? '' : 'lastedit-reverse');
+                        }}>
+                        <span>{website.localize({ en: 'Oldest', fr: 'Le plus ancien' })}</span>
+                    </div>
+                </Popover.Button>
+            </div>
+        );
+    }
+
+    if (!menu.length) return null;
 
     return (
         <Popover className='relative'>
