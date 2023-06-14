@@ -1,10 +1,10 @@
-# Uniweb Express UI
+# Uniweb Express
 
 [Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and build websites from templates. The logic that is necessary for creating the user interface of a website exists at the level of **web components** that are powered by the web engine.
 
 A Uniweb **website template** can be created without technical knowledge thanks to the fact that it is simply a set of options that guide the process of building a website automatically. We refer to that process as **self-building website**. A website template specifies the web components that are needed to define a self-building website.
 
-**Uniweb Express UI** is a library of low-level and general-purposed web components that can be used to create collections of higher-level and/or specialized components.
+**Uniweb Express** is a component library of low-level and general-purposed web components that can be used to create collections of higher-level and/or specialized components.
 
 ## Designing for self-building websites
 
@@ -18,26 +18,10 @@ Continuing our navbar example, we can assume that the template defines a Project
 
 In summary, the engine allows us to connect the abstract definition of a website structure and dependencies with the concrete data instantiation of a specific website in a way that helps us have a complete view of the site when rendering its navbar.
 
-## The Uniweb Module SDK
+## The Express Library
 
-The integration of custom components into a Uniweb system is done via Webpack Federated Modules. The [Uniweb Module SDK](https://github.com/uniwebcms/uniweb-module-sdk) is a software development kit that provides a thin wrapper around the underlying Uniweb JavaScript engine. The SDK provides a tailored and consistent API layer for the underlying web engine.
+**Uniweb Express** is an opinionated library of low-level and general-purposed web components. It includes the [Uniweb Module SDK](https://github.com/uniwebcms/uniweb-module-sdk), which is a software development kit that provides a thin wrapper around the underlying Uniweb JavaScript engine. 
 
-The main building blocks provided by the engine fall into two categories: Custom React Hooks and General purpose components.
+The SDK and the Express library complement one another. The SDK provides a tailored and consistent API layer for the underlying web engine, which makes it suitable to be used as a dependency of several different types of component libraries. On the other hand, Uniweb Express implements React-based components with the SDK with the goal of achieving a consistent UI look and providing commonly needed small and large components.
 
-### Custom React Hooks
-
-- useLoadProfileBody
-- useLinkedProfileFilterState
-- useGetProfile
-
-### General purpose components
-
-- Asset
-- Image
-- Link
-
-By using the SDK, a component creator is freed from having to implement low-level functionality or deal with complex backend requests. Creating a link to a page or fetching an asset become simple tasks when using the SDK. Similarly, when using the Custom React Hooks, a component creator can enjoy a simplified management of rendering states for common use cases.
-
-## The Express UI Library
-
-The Uniweb Express UI is an opinionated library of low-level and general-purposed web components. It includes the Uniweb Module SDK as a dependency and implements React-based components with it.
+A Uniweb Component is a React JS component whose props are 4 objets: `profile`, `block`, `page` , and `website`. The `profile` object represents the source data of a website. The `block` object contains the settings for the component, which is considered a **building block** within a webpage. The `page` object provides information about the current webpage being rendered as a sequence of buildign blocks. Finally, the `website` provides information about the entire website. Most components only need to work with the `profile` and `block` props. [Learn more about Uniweb components](https://github.com/uniwebcms/uniweb-module-sdk/blob/main/docs/components.md)
