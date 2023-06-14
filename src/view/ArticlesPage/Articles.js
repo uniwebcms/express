@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import { ProfileImage } from '@uniwebcms/module-sdk';
+import { Image, Link } from '@uniwebcms/module-sdk';
 import Container from '../../components/Container';
 
 export default function (props) {
-    const {
-        website,
-        profile,
-        page,
-        block: { schema },
-        browser: { Link }
-    } = props;
+    const { website, profile, page } = props;
 
     const pageTitle = page.getPageTitle();
     const pageLeadText = page.getPageLeadText();
 
-    const section = schema?.section || 'member_articles';
+    const section = 'member_articles';
 
     const [filter, setFilter] = useState({ search: '', year: '' });
 
@@ -32,15 +26,14 @@ export default function (props) {
                 <li key={i}>
                     <Link
                         to={handle || item.getId()}
-                        className="cursor-pointer overflow-hidden rounded-md flex space-x-0 lg:space-x-6 border max-w-4xl relative !shadow hover:!shadow-lg"
-                    >
-                        <div className="w-44 h-44 flex-shrink-0 overflow-hidden hidden lg:block">
-                            <ProfileImage profile={item}></ProfileImage>
+                        className='cursor-pointer overflow-hidden rounded-md flex space-x-0 lg:space-x-6 border max-w-4xl relative !shadow hover:!shadow-lg'>
+                        <div className='w-44 h-44 flex-shrink-0 overflow-hidden hidden lg:block'>
+                            {/* <Image profile={item}></Image> */}
                         </div>
-                        <div className="flex flex-col space-y-1 pl-4 pr-8 py-5">
-                            <h2 className="font-bold text-lg lineClamp-2">{title}</h2>
-                            <p className="text-base lineClamp-2 text-gray-600">{subtitle}</p>
-                            <p className="text-sm text-gray-500">{date}</p>
+                        <div className='flex flex-col space-y-1 pl-4 pr-8 py-5'>
+                            <h2 className='font-bold text-lg lineClamp-2'>{title}</h2>
+                            <p className='text-base lineClamp-2 text-gray-600'>{subtitle}</p>
+                            <p className='text-sm text-gray-500'>{date}</p>
                         </div>
                     </Link>
                 </li>
@@ -74,19 +67,18 @@ export default function (props) {
     let Wrapper = props.Wrapper || Container;
     let wrapperClassName = props.wrapperClassName || 'mt-16 sm:mt-32';
 
+    console.log('Wrapper', Wrapper);
     return (
         <>
             <Wrapper className={wrapperClassName}>
-                <header className="max-w-2xl">
-                    <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <header className='max-w-2xl'>
+                    <h1 className='text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl'>
                         {pageTitle}
                     </h1>
-                    <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                        {pageLeadText}
-                    </p>
+                    <p className='mt-6 text-lg text-zinc-600 dark:text-zinc-400'>{pageLeadText}</p>
                 </header>
-                <div className="w-full pt-8 lg:pt-12">
-                    <div className="w-full flex mb-8 mx-auto flex-1 lg:space-x-10">
+                <div className='w-full pt-8 lg:pt-12'>
+                    <div className='w-full flex mb-8 mx-auto flex-1 lg:space-x-10'>
                         <Sidebar
                             searchText={filter.search}
                             setSearchText={(val) => {
@@ -103,9 +95,8 @@ export default function (props) {
                                     year: val
                                 });
                             }}
-                            website={website}
-                        ></Sidebar>
-                        <ul className="flex flex-col space-y-4 lg:space-y-10 lg:py-5 lg:border-l lg:pl-12">
+                            website={website}></Sidebar>
+                        <ul className='flex flex-col space-y-4 lg:space-y-10 lg:py-5 lg:border-l lg:pl-12'>
                             {articleMarkup}
                         </ul>
                     </div>

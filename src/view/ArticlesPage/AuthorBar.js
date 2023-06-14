@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShareBar from './ShareBar';
-import { Profile, ProfileImage } from '@uniwebcms/module-sdk';
+import { Profile, Image } from '@uniwebcms/module-sdk';
 
 export default function ({ profile, Link }) {
     const metadata = profile.getBasicInfo();
@@ -19,7 +19,7 @@ export default function ({ profile, Link }) {
         <>
             <Link profile={{ contentType: 'members', contentId: ownerId }}>
                 <div className='w-10 h-10 md:w-12 md:h-12 rounded-full mr-4'>
-                    <ProfileImage profile={memberProfile} type={'avatar'} rounded></ProfileImage>
+                    <Image profile={memberProfile} type={'avatar'} rounded></Image>
                 </div>
             </Link>
             <div className='flex flex-col'>

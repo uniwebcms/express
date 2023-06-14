@@ -1,6 +1,6 @@
 {
     "name": "@uniwebcms/express",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "",
     "main": "dist/bundle.js",
     "files": [
@@ -12,7 +12,8 @@
         "build:dev": "webpack --mode=development --watch",
         "build": "webpack --mode=production",
         "reinstall": "rm -rf ./node_modules && npm i",
-        "rebuild": "rm -rf ./dist && npm run build"
+        "rebuild": "rm -rf ./dist && npm run build",
+        "docs": "jsdoc2md src/**/*.js > docs/api.md"
     },
     "repository": {
         "type": "git",
@@ -34,6 +35,7 @@
         "babel-loader": "^8.2.2",
         "css-loader": "^5.2.0",
         "sass": "^1.50.0",
+        "jsdoc-to-markdown": "^8.0.0",
         "sass-loader": "^12.6.0",
         "style-loader": "^2.0.0",
         "webpack": "^5.74.0",
@@ -44,7 +46,7 @@
         "@react-google-maps/api": "^2.17.1",
         "@popperjs/core": "^2.10.1",
         "@headlessui/react": "^1.7.3",
-        "@uniwebcms/module-sdk": "^1.3.8",
+        "@uniwebcms/module-sdk": "^1.3.9",
         "react-icons": "^4.6.0"
     },
     "peerDependencies": {

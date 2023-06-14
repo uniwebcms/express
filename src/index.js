@@ -7,9 +7,21 @@ import Articles from './view/ArticlesPage';
 import Badge from './components/Badge';
 import Map from './components/Map';
 import SearchBox from './components/SearchBox';
-import Asset from './components/Asset';
-import Assets from './view/Assets';
 
-export { Container, MediaHeader, LanguageToggle, SiteSearch, Badge, Map, SearchBox, Asset };
+import Assets from './view/Assets';
+import Sorter from './components/Sorter';
+import Filter from './components/Filter';
+
+export {
+    Container,
+    MediaHeader,
+    LanguageToggle,
+    SiteSearch,
+    Badge,
+    Map,
+    SearchBox,
+    Sorter,
+    Filter
+};
 
 export { LinkedProfile, Articles, Assets };

@@ -4,8 +4,10 @@ import * as React from 'react';
 
 export default function (props) {
     const {
-        browser: { CardsRoutes }
+        website: {
+            routingComponents: { RouteSwitcher }
+        }
     } = props;
 
-    return <CardsRoutes {...{ Cards: Articles, Item: Article, ...props }}></CardsRoutes>;
+    return <RouteSwitcher {...{ Cards: Articles, Item: Article, ...props }}></RouteSwitcher>;
 }

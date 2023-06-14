@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SearchBox } from '@uniwebcms/module-sdk';
+import SearchBox from '../../components/SearchBox';
 
 export default function (props) {
     const {
@@ -10,25 +10,25 @@ export default function (props) {
         categories,
         category,
         setCategory,
-        website,
+        website
     } = props;
 
     const placeholder = {
         en: 'Search by title',
-        fr: 'Recherche par titre',
+        fr: 'Recherche par titre'
     };
 
     const categoryLabel = {
         en: 'Published Date',
-        fr: 'Date de publication',
+        fr: 'Date de publication'
     };
 
     const scrollbar = {
         '&::WebkitScrollbar': {
-            display: 'none',
+            display: 'none'
         },
         scrollbarWidth: 'none',
-        msOverflowStyle: 'none',
+        msOverflowStyle: 'none'
     };
 
     const initStyle = sticky
@@ -39,36 +39,28 @@ export default function (props) {
 
     return (
         <div
-            className={`hidden md:flex flex-shrink-0 w-60 md:w-64 lg:w-56 xl:w-60 justify-end ${initStyle}`}
-        >
+            className={`hidden md:flex flex-shrink-0 w-60 md:w-64 lg:w-56 xl:w-60 justify-end ${initStyle}`}>
             <div
-                className={`pt-5 pb-6  h-auto ${
-                    mode === 'static' ? 'static' : 'fixed'
-                }`}
+                className={`pt-5 pb-6  h-auto ${mode === 'static' ? 'static' : 'fixed'}`}
                 style={{
                     width: 'inherit',
                     paddingLeft: '1px',
-                    paddingRight: '1px',
-                }}
-            >
-                <div
-                    className="flex flex-col"
-                    style={{ maxHeight: '100%', ...scrollbar }}
-                >
+                    paddingRight: '1px'
+                }}>
+                <div className='flex flex-col' style={{ maxHeight: '100%', ...scrollbar }}>
                     <div className={`w-full mb-3 flex`}>
                         <SearchBox
                             placeholder={website.localize(placeholder)}
                             filters={{ searchText }}
                             handleSearch={setSearchText}
                             live={true}
-                            style={{ width: '100%' }}
-                        ></SearchBox>
+                            style={{ width: '100%' }}></SearchBox>
                     </div>
-                    <div className="w-full mb-3 flex flex-col mt-2">
+                    <div className='w-full mb-3 flex flex-col mt-2'>
                         {categories ? (
                             <>
-                                <div className="py-3.5 pl-1.5">
-                                    <h2 className="font-bold text-gray-600 uppercase">
+                                <div className='py-3.5 pl-1.5'>
+                                    <h2 className='font-bold text-gray-600 uppercase'>
                                         {website.localize(categoryLabel)}
                                     </h2>
                                 </div>
@@ -81,16 +73,11 @@ export default function (props) {
                                                 key={item}
                                                 tabIndex={0}
                                                 className={`flex cursor-pointer mb-1 text-gray-600 pl-5 items-center h-8 hover:bg-gray-100 ${
-                                                    isActive
-                                                        ? '!bg-blue-200'
-                                                        : ''
+                                                    isActive ? '!bg-blue-200' : ''
                                                 }`}
                                                 onClick={() => {
-                                                    setCategory(
-                                                        isActive ? '' : item
-                                                    );
-                                                }}
-                                            >
+                                                    setCategory(isActive ? '' : item);
+                                                }}>
                                                 {item}
                                             </div>
                                         );

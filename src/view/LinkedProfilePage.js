@@ -1,13 +1,14 @@
+/**
+ * Render a page with a media header and filterable profile cards.
+ * @module view/LinkedProfilePage
+ */
+
 import React from 'react';
 import Container from '../components/Container';
-import {
-    Link,
-    ProfileFilter,
-    ProfileSorter,
-    useLinkedProfileFilterState,
-    ProfileImage
-} from '@uniwebcms/module-sdk';
+import { Link, useLinkedProfileFilterState, Image } from '@uniwebcms/module-sdk';
 import MediaHeader from '../components/MediaHeader';
+import Sorter from '../components/Sorter';
+import Filter from '../components/Filter';
 
 const Card = ({ profile, properties = {} }) => {
     const head = profile.getBasicInfo();
@@ -24,7 +25,7 @@ const Card = ({ profile, properties = {} }) => {
             style={style}>
             <div className='flex justify-between'>
                 <div className='w-20 h-20 rounded-full overflow-hidden'>
-                    <ProfileImage profile={profile} type='banner' />
+                    <Image profile={profile} type='banner' />
                 </div>
             </div>
 
@@ -48,12 +49,12 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
             <div className='flex justify-end'>
                 <div className='flex space-x-1 items-center'>
                     {showFilter ? (
-                        <ProfileFilter filter={filter} setFilter={setFilter}>
-                            <ProfileFilter.Search />
-                            <ProfileFilter.Menu />
-                        </ProfileFilter>
+                        <Filter filter={filter} setFilter={setFilter}>
+                            <Filter.Search />
+                            <Filter.Menu />
+                        </Filter>
                     ) : null}
-                    {hasSorting ? <ProfileSorter filter={filter} setFilter={setFilter} /> : null}
+                    {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
                 </div>
             </div>
             <ul
@@ -67,6 +68,16 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
     );
 };
 
+/**
+ * Render a page with a media header and filterable profile cards.
+ * 
+ * @component LinkedProfilePage
+ * @prop {Profile} profile - A data profile.
+ * @prop {Block} block - The template properties for the component.
+ * @prop {Page} page - The page that contains the block.
+ * @prop {Website} website - The website that contains the page.
+ * @returns {function} A react component.
+ */
 export default function (props) {
     const { profile, block, page, website } = props;
     const {

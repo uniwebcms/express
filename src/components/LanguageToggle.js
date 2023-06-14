@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { website, localize } from '../core';
+import { website } from '../core';
 import PopoverMenu from './PopoverMenu';
 import { MdLanguage } from 'react-icons/md';
 
@@ -29,13 +29,13 @@ export default function (props) {
 
     if (langPreference === 'bilingual') {
         langOptions = [
-            { label: localize({ en: 'English', fr: 'Anglais' }), value: 'en' },
-            { label: localize({ en: 'French', fr: 'Français' }), value: 'fr' }
+            { label: website.localize({ en: 'English', fr: 'Anglais' }), value: 'en' },
+            { label: website.localize({ en: 'French', fr: 'Français' }), value: 'fr' }
         ];
     } else if (langPreference === 'en') {
-        langOptions = [{ label: localize({ en: 'English', fr: 'Anglais' }), value: 'en' }];
+        langOptions = [{ label: website.localize({ en: 'English', fr: 'Anglais' }), value: 'en' }];
     } else if (langPreference === 'fr') {
-        langOptions = [{ label: localize({ en: 'French', fr: 'Français' }), value: 'fr' }];
+        langOptions = [{ label: website.localize({ en: 'French', fr: 'Français' }), value: 'fr' }];
     }
 
     const menu = langOptions.map((opt) => (

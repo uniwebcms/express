@@ -1,13 +1,13 @@
 /**
  * Sort the profile lists.
- * @module ProfileSorter
+ * @module Sorter
  */
 
 import React from 'react';
 import { BiSort } from 'react-icons/bi';
 import { Popover } from '@headlessui/react';
 import { usePopper, Portal } from './PopoverMenu';
-import { localize } from '../core';
+import { website } from '../core';
 
 /**
  *
@@ -16,16 +16,16 @@ import { localize } from '../core';
  * @example
  * function MyComponent() {
  *   return (
- *       <ProfileSorter filter={filter} setFilter={setFilter} />
+ *       <Sorter filter={filter} setFilter={setFilter} />
  *   );
  * }
  *
- * @component ProfileSorter
+ * @component Sorter
  * @prop {object} filter - The filter state which return by useLinkedProfileFilterState
  * @prop {function} setFilter - The set method to update state, return by useLinkedProfileFilterState
  * @returns {function} A Sorting component.
  */
-export default function ProfileSorter(props) {
+export default function Sorter(props) {
     const {
         filter: { selection },
         setFilter
@@ -58,7 +58,7 @@ export default function ProfileSorter(props) {
         <div key={'alpha'}>
             <div className='px-2.5 py-1 sm:px-3 sm:py-1.5'>
                 <p className='text-sm font-semibold text-gray-900' title={'Alphabetically'}>
-                    {localize({ en: 'Alphabetically', fr: 'Par ordre alphabétique' })}
+                    {website.localize({ en: 'Alphabetically', fr: 'Par ordre alphabétique' })}
                 </p>
             </div>
             <Popover.Button as='div'>
@@ -88,7 +88,7 @@ export default function ProfileSorter(props) {
         <div key={'edittime'}>
             <div className='px-2.5 py-1 sm:px-3 sm:py-1.5'>
                 <p className='text-sm font-semibold text-gray-900' title={'Last Edited'}>
-                    {localize({ en: 'Last Edited', fr: 'Dernière édition' })}
+                    {website.localize({ en: 'Last Edited', fr: 'Dernière édition' })}
                 </p>
             </div>
             <Popover.Button as='div'>
@@ -99,7 +99,7 @@ export default function ProfileSorter(props) {
                     onClick={() => {
                         handleSelect(_sort === 'lastedit' ? '' : 'lastedit');
                     }}>
-                    <span>{localize({ en: 'Newest', fr: 'Le plus récent' })}</span>
+                    <span>{website.localize({ en: 'Newest', fr: 'Le plus récent' })}</span>
                 </div>
             </Popover.Button>
             <Popover.Button as='div'>
@@ -110,7 +110,7 @@ export default function ProfileSorter(props) {
                     onClick={() => {
                         handleSelect(_sort === 'lastedit-reverse' ? '' : 'lastedit-reverse');
                     }}>
-                    <span>{localize({ en: 'Oldest', fr: 'Le plus ancien' })}</span>
+                    <span>{website.localize({ en: 'Oldest', fr: 'Le plus ancien' })}</span>
                 </div>
             </Popover.Button>
         </div>
