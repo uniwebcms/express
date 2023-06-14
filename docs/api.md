@@ -28,6 +28,9 @@
 <dt><a href="#module_Sorter">Sorter</a></dt>
 <dd><p>Sort the profile lists.</p>
 </dd>
+<dt><a href="#module_LinkedProfilePage">LinkedProfilePage</a></dt>
+<dd><p>Render a page with a media header and filterable profile cards.</p>
+</dd>
 </dl>
 
 <a name="module_Badge"></a>
@@ -371,3 +374,24 @@ function MyComponent() {
   );
 }
 ```
+<a name="module_LinkedProfilePage"></a>
+
+## LinkedProfilePage
+Render a page with a media header and filterable profile cards.
+
+<a name="exp_module_LinkedProfilePage--module.exports"></a>
+
+### module.exports() ⇒ <code>function</code> ⏏
+Render a page with a media header and filterable profile cards.
+
+**Kind**: Exported function  
+**Component**:   
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| profile | <code>Profile</code> | - |
+| block | <code>Block</code> | - |
+| page | <code>Page</code> | - |
+| website | <code>Website</code> | - |
+

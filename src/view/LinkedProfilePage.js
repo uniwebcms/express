@@ -1,3 +1,8 @@
+/**
+ * Render a page with a media header and filterable profile cards.
+ * @module LinkedProfilePage
+ */
+
 import React from 'react';
 import Container from '../components/Container';
 import { Link, useLinkedProfileFilterState, Image } from '@uniwebcms/module-sdk';
@@ -63,6 +68,16 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
     );
 };
 
+/**
+ * Render a page with a media header and filterable profile cards.
+ * 
+ * @component
+ * @prop {Profile} profile - 
+ * @prop {Block} block - 
+ * @prop {Page} page - 
+ * @prop {Website} website - 
+ * @returns {function}
+ */
 export default function (props) {
     const { profile, block, page, website } = props;
     const {
