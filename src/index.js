@@ -1,15 +1,15 @@
-import Container from './components/Container';
-import MediaHeader from './components/MediaHeader';
+import Container from './basic/Container';
+import MediaHeader from './basic/MediaHeader';
 import LinkedProfile from './view/LinkedProfilePage';
-import LanguageToggle from './components/LanguageToggle';
-import SiteSearch from './components/SiteSearch';
+import LanguageToggle from './basic/LanguageToggle';
+import SiteSearch from './basic/SiteSearch';
 import Articles from './view/ArticlesPage';
-import Badge from './components/Badge';
-import Map from './components/Map';
-import SearchBox from './components/SearchBox';
+import Badge from './basic/Badge';
+import Map from './basic/Map';
+import SearchBox from './basic/SearchBox';
 import AssetList from './view/AssetList';
-import Sorter from './components/Sorter';
-import Filter from './components/Filter';
+import Sorter from './basic/Sorter';
+import Filter from './basic/Filter';
 
 export {
     Container,

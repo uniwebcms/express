@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import { Image, Link } from '@uniwebcms/module-sdk';
-import Container from '../../components/Container';
+import Container from '../../basic/Container';
 
 export default function (props) {
     const { website, profile, page } = props;

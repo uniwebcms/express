@@ -5,8 +5,8 @@
 
 import React, { useState, cloneElement } from 'react';
 import { Asset, FileLogo } from '@uniwebcms/module-sdk';
-import SearchBox from '../components/SearchBox';
-import Sorter from '../components/Sorter';
+import SearchBox from '../basic/SearchBox';
+import Sorter from '../basic/Sorter';
 
 function Layout(props) {
     const { profile, section, searchText = '', sort, options = {} } = props;

@@ -4,11 +4,11 @@
  */
 
 import React from 'react';
-import Container from '../components/Container';
+import Container from '../basic/Container';
 import { Link, useLinkedProfileFilterState, Image } from '@uniwebcms/module-sdk';
-import MediaHeader from '../components/MediaHeader';
-import Sorter from '../components/Sorter';
-import Filter from '../components/Filter';
+import MediaHeader from '../basic/MediaHeader';
+import Sorter from '../basic/Sorter';
+import Filter from '../basic/Filter';
 
 const Card = ({ profile, properties = {} }) => {
     const head = profile.getBasicInfo();
@@ -70,7 +70,7 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
 
 /**
  * Render a page with a media header and filterable profile cards.
- * 
+ *
  * @component LinkedProfilePage
  * @prop {Profile} profile - A data profile.
  * @prop {Block} block - The template properties for the component.

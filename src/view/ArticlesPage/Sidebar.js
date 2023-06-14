@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SearchBox from '../../components/SearchBox';
+import SearchBox from '../../basic/SearchBox';
 
 export default function (props) {
     const {
