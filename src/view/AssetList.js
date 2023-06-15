@@ -53,7 +53,8 @@ function Layout(props) {
 
         return (
             <div
-                className={`w-full h-full rounded-lg border border-gray-200 flex flex-col overflow-hidden group shadow-sm`}>
+                className={`w-full h-full rounded-lg border border-gray-200 flex flex-col overflow-hidden group shadow-sm`}
+            >
                 <div className={`h-56`}>
                     <Asset
                         {...{
@@ -63,13 +64,14 @@ function Layout(props) {
                     />
                 </div>
                 <div className={`flex items-center space-x-1 px-4 py-3 border-t border-gray-200`}>
-                    <div className='w-8'>{<FileLogo filename={fileValue}></FileLogo>}</div>
+                    <div className="w-8">{<FileLogo filename={fileValue}></FileLogo>}</div>
                     <div className={`flex flex-col space-y-0.5 max-w-[calc(100%-40px)]`}>
-                        <p className='text-[15px] text-gray-900'>{titleValue}</p>
+                        <p className="text-[15px] text-gray-900">{titleValue}</p>
                         {descriptionValue ? (
                             <p
-                                className='text-sm text-gray-500 line-clamp-1'
-                                title={descriptionValue}>
+                                className="text-sm text-gray-500 line-clamp-1"
+                                title={descriptionValue}
+                            >
                                 {descriptionValue}
                             </p>
                         ) : null}
@@ -146,11 +148,13 @@ export default function AssetList({
 
     return (
         <div className={className}>
-            <div className={controlWrapperClassName}>
-                {children.map((child, index) =>
-                    cloneElement(child, { key: index, ...controlProps })
-                )}
-            </div>
+            {children ? (
+                <div className={controlWrapperClassName}>
+                    {children.map((child, index) =>
+                        cloneElement(child, { key: index, ...controlProps })
+                    )}
+                </div>
+            ) : null}
 
             <div className={listWrapperClassName}>
                 <Layout
