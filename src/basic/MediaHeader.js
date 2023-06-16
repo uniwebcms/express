@@ -53,7 +53,7 @@ export default function MediaHeader(props) {
     let src, alt;
 
     if (pageHeaderImg) {
-        ({ src, altText: alt } = webProfile.getAssetInfo(pageHeaderImg));
+        ({ src, alt } = webProfile.getAssetInfo(pageHeaderImg));
     }
 
     return (

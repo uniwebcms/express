@@ -21,12 +21,12 @@ import React from 'react';
  * @prop {ReactNode|ReactNodeArray} children - The contents for the Badge container.
  * @returns {function} A react component.
  */
-export default function ({ children, className = '' }) {
+export default function ({ as: Component = 'section', children, className = '', style = {} }) {
     return (
-        <section className={`py-8 md:py-12 xl:py-16 ${className}`}>
+        <Component className={`py-8 md:py-12 xl:py-16 ${className}`} style={style}>
             <div className='mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:max-w-7xl xl:max-w-8xl 2xl:max-w-9xl lg:px-12'>
                 {children}
             </div>
-        </section>
+        </Component>
     );
 }
