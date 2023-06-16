@@ -45,7 +45,7 @@
         "@headlessui/react": "^1.7.3",
         "@popperjs/core": "^2.10.1",
         "@react-google-maps/api": "^2.17.1",
-        "@uniwebcms/module-sdk": "^1.4.1",
+        "@uniwebcms/module-sdk": "^1.4.2",
         "react-icons": "^4.6.0"
     },
     "peerDependencies": {

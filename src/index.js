@@ -10,6 +10,8 @@ import SearchBox from './basic/SearchBox';
 import AssetList from './view/AssetList';
 import Sorter from './basic/Sorter';
 import Filter from './basic/Filter';
+import ExtendedFooter from './view/ExtendedFooter';
+import RecentItems from './basic/RecentItems';
 
 export {
     Container,
@@ -20,7 +22,8 @@ export {
     Map,
     SearchBox,
     Sorter,
-    Filter
+    Filter,
+    RecentItems
 };
 
-export { LinkedProfile, Articles, AssetList };
+export { LinkedProfile, Articles, AssetList, ExtendedFooter };
