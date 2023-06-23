@@ -9,8 +9,6 @@ import Sorter from './basic/Sorter';
 import Filter from './basic/Filter';
 import RecentItems from './basic/RecentItems';
 
-import HeroImage from './basic/HeroImage';
-
 import BlogSection from './blocks/BlogSection';
 import AssetList from './blocks/AssetList';
 import ProfileList from './blocks/ProfileList';
@@ -29,8 +27,7 @@ export {
     SearchBox,
     Sorter,
     Filter,
-    RecentItems,
-    HeroImage
+    RecentItems
 };
 
 export {
