@@ -1,6 +1,6 @@
 {
     "name": "@uniwebcms/express",
-    "version": "0.1.0",
+    "version": "0.2.3",
     "description": "",
     "main": "dist/bundle.js",
     "files": [
@@ -45,12 +45,12 @@
         "@headlessui/react": "^1.7.3",
         "@popperjs/core": "^2.10.1",
         "@react-google-maps/api": "^2.17.1",
-        "@uniwebcms/module-sdk": "^1.4.2",
-        "react-icons": "^4.6.0"
+        "@uniwebcms/module-sdk": "^1.5.1",
+        "react-icons": "^4.6.0",
+        "react-spinners": "^0.13.8"
     },
     "peerDependencies": {
         "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-router-dom": "^6.4.2"
+        "react-dom": "^18.2.0"
     }
 }

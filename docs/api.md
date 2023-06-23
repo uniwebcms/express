@@ -19,6 +19,9 @@
 <dt><a href="#module_PopoverMenu">PopoverMenu</a></dt>
 <dd><p>PopoverMenu for user selections.</p>
 </dd>
+<dt><a href="#module_RecentItems">RecentItems</a></dt>
+<dd><p>Renders the first x items in the target profile, sorted by last edit time.</p>
+</dd>
 <dt><a href="#module_SearchBox">SearchBox</a></dt>
 <dd><p>Enable website search.</p>
 </dd>
@@ -293,6 +296,43 @@ function MyComponent() {
 Example implementation to use Popper: https://popper.js.org/
 
 **Kind**: static method of [<code>module.exports</code>](#exp_module_PopoverMenu--module.exports)  
+<a name="module_RecentItems"></a>
+
+## RecentItems
+Renders the first x items in the target profile, sorted by last edit time.
+
+<a name="exp_module_RecentItems--module.exports"></a>
+
+### module.exports(profile, properties) ⇒ <code>JSX.Element</code> ⏏
+**Kind**: Exported function  
+**Returns**: <code>JSX.Element</code> - - Rendered component.  
+**Component**:   
+
+| Param | Type | Description |
+| --- | --- | --- |
+| profile | <code>Profile</code> | Target profile containing items. |
+| properties | <code>Object</code> | Additional properties. |
+| properties.profileType | <code>string</code> | Profile type to look for in the target profile. |
+| properties.section | <code>string</code> | Section of the profile to retrieve items from. |
+| [properties.maxCount] | <code>number</code> | Maximum number of items to render, default as 3. |
+| [properties.linkTo] | <code>string</code> | URL prefix for each item when rendering it as a link. |
+
+**Example**  
+```js
+function MyComponent() {
+   return (
+      <RecentItems
+          profile={profile}
+          properties={{
+              profileType: 'articles',
+              section: 'member_articles',
+              maxCount: 4,
+              linkTo: 'articles'
+          }}
+      />;
+   );
+}
+```
 <a name="module_SearchBox"></a>
 
 ## SearchBox
