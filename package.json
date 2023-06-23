@@ -13,7 +13,7 @@
         "build": "webpack --mode=production",
         "reinstall": "rm -rf ./node_modules && npm i",
         "rebuild": "rm -rf ./dist && npm run build",
-        "docs": "jsdoc2md src/**/*.js > docs/api.md"
+        "docs": "jsdoc2md 'src/**/*.js' 'src/**/*.js' > docs/api.md"
     },
     "repository": {
         "type": "git",

@@ -31,11 +31,20 @@
 <dt><a href="#module_Sorter">Sorter</a></dt>
 <dd><p>Sort the profile lists.</p>
 </dd>
-<dt><a href="#module_view/AssetList">view/AssetList</a></dt>
+<dt><a href="#module_blocks/AssetList">blocks/AssetList</a></dt>
 <dd><p>Render a page block that contains profile assets as cards and control widgets</p>
 </dd>
-<dt><a href="#module_view/LinkedProfilePage">view/LinkedProfilePage</a></dt>
+<dt><a href="#module_blocks/ProfileList">blocks/ProfileList</a></dt>
 <dd><p>Render a page with a media header and filterable profile cards.</p>
+</dd>
+<dt><a href="#module_blocks/SmartFooter/PlainFooter">blocks/SmartFooter/PlainFooter</a></dt>
+<dd><p>Render a footer with copyright and nav links.</p>
+</dd>
+<dt><a href="#module_blocks/SmartFooter/SocialConnectorFooter">blocks/SmartFooter/SocialConnectorFooter</a></dt>
+<dd><p>Render a footer with newsletter and media links.</p>
+</dd>
+<dt><a href="#module_blocks/SmartFooter/SpeedDialFooter">blocks/SmartFooter/SpeedDialFooter</a></dt>
+<dd><p>Render a footer that can preview the content of other pages.</p>
 </dd>
 </dl>
 
@@ -418,12 +427,12 @@ function MyComponent() {
   );
 }
 ```
-<a name="module_view/AssetList"></a>
+<a name="module_blocks/AssetList"></a>
 
-## view/AssetList
+## blocks/AssetList
 Render a page block that contains profile assets as cards and control widgets
 
-<a name="exp_module_view/AssetList--module.exports"></a>
+<a name="exp_module_blocks/AssetList--module.exports"></a>
 
 ### module.exports() ⇒ <code>function</code> ⏏
 Render a wrapper for the cards and controls
@@ -443,19 +452,19 @@ Render a wrapper for the cards and controls
 | controlWrapperClassName | <code>string</code> | The className for the wrapper component of the controls. |
 | options | <code>object</code> | Options for the list of cards, including the field name in the section representing the asset file, asset title, and asset description to be displayed. |
 
-<a name="module_view/LinkedProfilePage"></a>
+<a name="module_blocks/ProfileList"></a>
 
-## view/LinkedProfilePage
+## blocks/ProfileList
 Render a page with a media header and filterable profile cards.
 
-<a name="exp_module_view/LinkedProfilePage--module.exports"></a>
+<a name="exp_module_blocks/ProfileList--module.exports"></a>
 
 ### module.exports() ⇒ <code>function</code> ⏏
 Render a page with a media header and filterable profile cards.
 
 **Kind**: Exported function  
 **Returns**: <code>function</code> - A react component.  
-**Component**: LinkedProfilePage  
+**Component**: ProfileList  
 **Properties**
 
 | Name | Type | Description |
@@ -464,4 +473,73 @@ Render a page with a media header and filterable profile cards.
 | block | <code>Block</code> | The template properties for the component. |
 | page | <code>Page</code> | The page that contains the block. |
 | website | <code>Website</code> | The website that contains the page. |
+
+<a name="module_blocks/SmartFooter/PlainFooter"></a>
+
+## blocks/SmartFooter/PlainFooter
+Render a footer with copyright and nav links.
+
+<a name="exp_module_blocks/SmartFooter/PlainFooter--module.exports"></a>
+
+### module.exports() ⇒ <code>function</code> ⏏
+Render a plain footer with copyright and nav links
+
+**Kind**: Exported function  
+**Returns**: <code>function</code> - A react component.  
+**Component**: Plain  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| profile | <code>Profile</code> | A data profile. |
+| block | <code>Block</code> | The template properties for the component. |
+| page | <code>Page</code> | The page that contains the block. |
+| website | <code>Website</code> | The website that contains the page. |
+| extra | <code>Object</code> | Extra props from parent such as 'as' |
+
+<a name="module_blocks/SmartFooter/SocialConnectorFooter"></a>
+
+## blocks/SmartFooter/SocialConnectorFooter
+Render a footer with newsletter and media links.
+
+<a name="exp_module_blocks/SmartFooter/SocialConnectorFooter--module.exports"></a>
+
+### module.exports() ⇒ <code>function</code> ⏏
+Render a footer with newsletter and media links
+
+**Kind**: Exported function  
+**Returns**: <code>function</code> - A react component.  
+**Component**: SocialConnector  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| profile | <code>Profile</code> | A data profile. |
+| block | <code>Block</code> | The template properties for the component. |
+| page | <code>Page</code> | The page that contains the block. |
+| website | <code>Website</code> | The website that contains the page. |
+| extra | <code>Object</code> | Extra props from parent such as 'as' |
+
+<a name="module_blocks/SmartFooter/SpeedDialFooter"></a>
+
+## blocks/SmartFooter/SpeedDialFooter
+Render a footer that can preview the content of other pages.
+
+<a name="exp_module_blocks/SmartFooter/SpeedDialFooter--module.exports"></a>
+
+### module.exports() ⇒ <code>function</code> ⏏
+Render a footer that can preview the content of other pages.
+
+**Kind**: Exported function  
+**Returns**: <code>function</code> - A react component.  
+**Component**: SpeedDial  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| profile | <code>Profile</code> | A data profile. |
+| block | <code>Block</code> | The template properties for the component. |
+| page | <code>Page</code> | The page that contains the block. |
+| website | <code>Website</code> | The website that contains the page. |
+| extra | <code>Object</code> | Extra props from parent such as 'as' |
 

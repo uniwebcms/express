@@ -1,6 +1,6 @@
 /**
  * Render a footer with copyright and nav links.
- * @module view/SmartFooter/PlainFooter
+ * @module blocks/SmartFooter/PlainFooter
  */
 
 import React from 'react';

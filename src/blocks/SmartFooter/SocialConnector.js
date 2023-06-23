@@ -1,6 +1,6 @@
 /**
  * Render a footer with newsletter and media links.
- * @module view/SmartFooter/SocialConnectorFooter
+ * @module blocks/SmartFooter/SocialConnectorFooter
  */
 
 import React, { useState } from 'react';

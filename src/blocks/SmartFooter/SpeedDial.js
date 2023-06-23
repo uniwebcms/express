@@ -1,6 +1,6 @@
 /**
  * Render a footer that can preview the content of other pages.
- * @module view/SmartFooter/SpeedDialFooter
+ * @module blocks/SmartFooter/SpeedDialFooter
  */
 
 import React, { Fragment } from 'react';

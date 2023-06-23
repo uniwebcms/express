@@ -1,12 +1,12 @@
 /**
  * Render a page block that contains profile assets as cards and control widgets
- * @module view/AssetList
+ * @module blocks/AssetList
  */
 
 import React, { useState, cloneElement } from 'react';
 import { Asset, FileLogo } from '@uniwebcms/module-sdk';
-import SearchBox from '../basic/SearchBox';
-import Sorter from '../basic/Sorter';
+import SearchBox from '../../basic/SearchBox';
+import Sorter from '../../basic/Sorter';
 
 function Layout(props) {
     const { profile, section, searchText = '', sort, options = {} } = props;
@@ -53,8 +53,7 @@ function Layout(props) {
 
         return (
             <div
-                className={`w-full h-full rounded-lg border border-gray-200 flex flex-col overflow-hidden group shadow-sm`}
-            >
+                className={`w-full h-full rounded-lg border border-gray-200 flex flex-col overflow-hidden group shadow-sm`}>
                 <div className={`h-56`}>
                     <Asset
                         {...{
@@ -64,14 +63,13 @@ function Layout(props) {
                     />
                 </div>
                 <div className={`flex items-center space-x-1 px-4 py-3 border-t border-gray-200`}>
-                    <div className="w-8">{<FileLogo filename={fileValue}></FileLogo>}</div>
+                    <div className='w-8'>{<FileLogo filename={fileValue}></FileLogo>}</div>
                     <div className={`flex flex-col space-y-0.5 max-w-[calc(100%-40px)]`}>
-                        <p className="text-[15px] text-gray-900">{titleValue}</p>
+                        <p className='text-[15px] text-gray-900'>{titleValue}</p>
                         {descriptionValue ? (
                             <p
-                                className="text-sm text-gray-500 line-clamp-1"
-                                title={descriptionValue}
-                            >
+                                className='text-sm text-gray-500 line-clamp-1'
+                                title={descriptionValue}>
                                 {descriptionValue}
                             </p>
                         ) : null}
