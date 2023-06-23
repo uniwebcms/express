@@ -81,12 +81,16 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
 export default function (props) {
     const { profile, block, page, website } = props;
     const {
-        profileType,
-        section,
         filter: showFilter = true,
         sorting: hasSorting = true,
         card
     } = block.getBlockProperties();
+
+    let { inputType: profileType, input: section } = block;
+
+    if (profileType && !section) {
+        [section] = profile.findRelationField(profileType);
+    }
 
     return (
         <>

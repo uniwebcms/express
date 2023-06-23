@@ -57,7 +57,9 @@ export default function MediaHeader(props) {
     }
 
     return (
-        <div className='relative' style={{ height, width }}>
+        <div
+            className='relative'
+            style={{ height: src || pageTitle || pageLeadText ? height : 'auto', width }}>
             <div
                 className={`h-full z-1 relative flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20`}>
                 {pageTitle ? (
