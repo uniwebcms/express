@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { useLinkedProfileFilterState, Link, Image, cn, website } from '@uniwebcms/module-sdk';
+import { useLinkedProfileFilterState, Link, Image, twJoin, website } from '@uniwebcms/module-sdk';
 import { IoLinkOutline } from 'react-icons/io5';
 
 /**
@@ -72,7 +72,7 @@ export default function RecentItems(props) {
                         <ItemWrapper
                             {...ItemWrapperProps}
                             key={p.key}
-                            className={cn(
+                            className={twJoin(
                                 'px-1.5 block group relative flex space-x-4',
                                 index > 0 && 'pt-6 lg:pt-4'
                             )}>
@@ -82,7 +82,7 @@ export default function RecentItems(props) {
                             <div>
                                 {itemLinkPrefix ? (
                                     <div
-                                        className={cn(
+                                        className={twJoin(
                                             'w-5 h-5 invisible group-hover:visible absolute right-0',
                                             index > 0 && 'top-6 lg:top-4'
                                         )}>

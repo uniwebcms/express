@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { Link, cn } from '@uniwebcms/module-sdk';
+import { Link, twJoin } from '@uniwebcms/module-sdk';
 import Container from '../../basic/Container';
 
 /**
@@ -80,5 +80,5 @@ export default function Plain(props) {
         </Container>
     );
 
-    return <div className={cn(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
+    return <div className={twJoin(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
 }

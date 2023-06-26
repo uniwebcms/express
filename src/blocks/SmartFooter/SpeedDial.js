@@ -4,7 +4,7 @@
  */
 
 import React, { Fragment } from 'react';
-import { Link, cn, Image, useLinkedProfileFilterState } from '@uniwebcms/module-sdk';
+import { Link, twJoin, Image, useLinkedProfileFilterState } from '@uniwebcms/module-sdk';
 import Container from '../../basic/Container';
 
 const RelatedItems = (props) => {
@@ -38,12 +38,12 @@ const RelatedItems = (props) => {
                     <Link
                         to={linkToPrefix ? `${linkToPrefix}/${p.getId()}` : linkTo}
                         key={p.key}
-                        className={cn(
+                        className={twJoin(
                             'block group relative flex space-x-3',
                             index > 0 && 'pt-6 lg:pt-4'
                         )}>
                         <div
-                            className={cn(
+                            className={twJoin(
                                 bannerShape === 'sqar' ? 'w-10 h-10' : 'w-14 h-10',
                                 'flex-shrink-0'
                             )}>
@@ -157,10 +157,7 @@ export default function SpeedDial(props) {
 
     const markup = (
         <Container as={as} className='bg-[var(--primary)]'>
-            <div
-                className={cn(
-                    'flex [&>*:nth-child(n+2)]:hidden md:[&>*:nth-child(n+2)]:block md:[&>*:nth-child(n+4)]:hidden lg:[&>*:nth-child(n+4)]:block lg:[&>*:nth-child(n+6)]:hidden xl:[&>*:nth-child(n+6)]:block xl:[&>*:nth-child(n+8)]:hidden 2xl:[&>*:nth-child(n+8)]:block'
-                )}>
+            <div className='flex [&>*:nth-child(n+2)]:hidden md:[&>*:nth-child(n+2)]:block md:[&>*:nth-child(n+4)]:hidden lg:[&>*:nth-child(n+4)]:block lg:[&>*:nth-child(n+6)]:hidden xl:[&>*:nth-child(n+6)]:block xl:[&>*:nth-child(n+8)]:hidden 2xl:[&>*:nth-child(n+8)]:block'>
                 {pageCols.map((page, index) => {
                     const { title, route, inputs, links } = page;
 
@@ -168,7 +165,7 @@ export default function SpeedDial(props) {
 
                     return (
                         <Fragment key={index}>
-                            <div className={cn('relative group flex-1')}>
+                            <div className='relative group flex-1'>
                                 {input ? (
                                     <Link
                                         to={route}
@@ -206,5 +203,5 @@ export default function SpeedDial(props) {
         </Container>
     );
 
-    return <div className={cn(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
+    return <div className={twJoin(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
 }

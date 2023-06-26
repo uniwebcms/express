@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { MediaIcon, cn } from '@uniwebcms/module-sdk';
+import { MediaIcon, twJoin } from '@uniwebcms/module-sdk';
 import Container from '../../basic/Container';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import MoonLoader from 'react-spinners/MoonLoader';
@@ -108,7 +108,7 @@ export default function SocialConnector(props) {
     const { extraContent } = params;
 
     const markup = (
-        <Container as={as} className='!py-8 !pb-10 !px-12 md:!px-8 lx:!px-12 xl:!px-24 2xl:!px-36'>
+        <Container as={as} className='!py-8 pb-10 px-12 md:px-8 lx:px-12 xl:px-24 2xl:px-36'>
             <div className='block md:flex items-start justify-between space-y-6 md:space-y-0'>
                 <div className='space-y-2.5 md:space-y-4'>
                     <h3 className='text-base font-medium'>Subscribe to my newsletter</h3>
@@ -121,5 +121,5 @@ export default function SocialConnector(props) {
         </Container>
     );
 
-    return <div className={cn(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
+    return <div className={twJoin(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
 }
