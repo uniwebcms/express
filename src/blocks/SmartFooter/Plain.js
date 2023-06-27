@@ -67,7 +67,9 @@ export default function Plain(props) {
             {nonRelatedPages.length ? (
                 <div className='flex flex-wrap mt-5'>
                     {nonRelatedPages.map((page, index) => {
-                        const { label, route } = page;
+                        let { label, route } = page;
+
+                        route = route === '/' ? '' : route;
 
                         return (
                             <Link key={index} className={`text-sm mr-4`} to={route}>

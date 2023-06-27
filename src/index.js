@@ -16,6 +16,7 @@ import SmartFooter from './blocks/SmartFooter';
 import SpeedDialFooter from './blocks/SmartFooter/SpeedDial';
 import SocialConnectorFooter from './blocks/SmartFooter/SocialConnector';
 import PlainFooter from './blocks/SmartFooter/Plain';
+import HeaderSection from './blocks/HeaderSection';
 
 export {
     Container,
@@ -37,5 +38,6 @@ export {
     SmartFooter,
     SpeedDialFooter,
     SocialConnectorFooter,
-    PlainFooter
+    PlainFooter,
+    HeaderSection
 };
