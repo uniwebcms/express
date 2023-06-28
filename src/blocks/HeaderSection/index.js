@@ -1,59 +1,13 @@
 import React, { useState } from 'react';
 import { twJoin, Image } from '@uniwebcms/module-sdk';
-import { Carousel as FbCarousel, createTheme, ThemeProvider } from 'flowbite-react';
+import { Carousel as FbCarousel } from 'flowbite-react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import './index.css';
 
-// export default function HeroImage(props) {
-//     const {
-//         height = '500px',
-//         width = '100%',
-//         src,
-//         gradient = null,
-//         children,
-//         title,
-//         subtile
-//     } = props;
-
-//     let gradientClassName = '';
-
-//     if (gradient) {
-//         const { color = '#fff213' } = gradient;
-
-//         gradientClassName = `after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:z-0 `;
-
-//         const { theme, level } = gradient;
-
-//         switch (theme) {
-//             case 'dark':
-//                 gradientClassName += `after:to-gray-600`;
-//                 break;
-//             case 'medium':
-//                 gradientClassName += `after:to-gray-400`;
-//                 break;
-//             case 'light':
-//                 gradientClassName += `after:to-gray-200 after:to-[var(--primary)]`;
-//                 break;
-//         }
-//     }
-
-//     console.log('gradientClassName', gradientClassName);
-
-//     return (
-//         <div
-//             className={cn('relative bg-cover bg-center bg-no-repeat', gradientClassName)}
-//             style={{
-//                 width,
-//                 height,
-//                 backgroundImage: `url(${src})`
-//             }}>
-//             {children}
-//         </div>
-//     );
-// }
-
 const CarouselItem = ({ item, profile, setItemHovered }) => {
     const { title, subtitle, images, links, properties } = item;
+
+    const { contentPosition = 'mid-center', gradient = false } = properties;
 
     const banner = images[0];
 
@@ -74,7 +28,7 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
         background = <div className='absolute top-0 left-0 bg-gray-400 w-full h-full'></div>;
     }
 
-    const contentPosition = {
+    const positions = {
         'top-left': 'items-start justify-start text-left',
         'top-center': 'items-start justify-center text-center',
         'top-right': 'items-start justify-end text-right',
@@ -122,8 +76,10 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
         <div
             className={twJoin(
                 'flex relative w-full h-[480px]',
-                contentPosition[properties?.contentPosition || 'mid-center'],
-                'py-20 xl:px-28 lg:px-20 md:px-16 px-8'
+                positions[contentPosition],
+                'py-20 xl:px-28 lg:px-20 md:px-16 px-8',
+                gradient &&
+                    'after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:z-0 after:to-[var(--gradient)]'
             )}>
             {background}
             {content}
@@ -176,6 +132,16 @@ export default function HeaderSection(props) {
 
     let items = block.getBlockItems();
     let markup = null;
+
+    const childBlocks = block.childBlocks;
+
+    if (childBlocks.length) {
+        childBlocks.forEach((childBlock) => {
+            const childItems = childBlock.getBlockItems();
+
+            items.push(...childItems);
+        });
+    }
 
     if (items.length > 1) {
         markup = <Carousel items={items} page={page} />;
