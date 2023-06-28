@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { twJoin } from '@uniwebcms/module-sdk';
 import { website } from '../core';
 import PopoverMenu from './PopoverMenu';
 import { MdLanguage } from 'react-icons/md';
@@ -41,11 +42,16 @@ export default function (props) {
     const menu = langOptions.map((opt) => (
         <div
             key={opt.value}
-            className={`w-full px-3 py-1.5 text-lg cursor-pointer`}
+            className={twJoin(
+                'w-full px-3 py-1.5 text-lg',
+                opt.value === currentLang
+                    ? 'cursor-not-allowed text-gray-400'
+                    : 'cursor-pointer hover:bg-gray-50 hover:text-blue-500'
+            )}
             onClick={() => {
                 if (opt.value !== currentLang) website.changeLanguage(opt.value);
             }}>
-            <p>{opt.label}</p>
+            {opt.label}
         </div>
     ));
 
@@ -54,7 +60,7 @@ export default function (props) {
             trigger={<MdLanguage className='w-full h-full' />}
             triggerClassName='w-6 h-6 flex items-center justify-center text-gray-500 hover:text-gray-700'
             options={menu}
-            width={'90px'}
+            width={'100px'}
             position={'top-full right-0 mt-1'}
         />
     );
