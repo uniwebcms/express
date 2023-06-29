@@ -18,6 +18,8 @@ import SocialConnectorFooter from './blocks/SmartFooter/SocialConnector';
 import PlainFooter from './blocks/SmartFooter/Plain';
 import HeaderSection from './blocks/HeaderSection';
 import Header from './blocks/Header';
+import Footer from './blocks/Footer';
+import FeatureSections from './blocks/FeatureSections';
 
 export {
     Container,
@@ -41,5 +43,7 @@ export {
     SocialConnectorFooter,
     PlainFooter,
     HeaderSection,
-    Header
+    Header,
+    Footer,
+    FeatureSections
 };
