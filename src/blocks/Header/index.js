@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Link, twJoin, Image } from '@uniwebcms/module-sdk';
+import { Link, twJoin, Image, twMerge } from '@uniwebcms/module-sdk';
 import SiteSearch from '../../basic/SiteSearch';
 import LanguageToggle from '../../basic/LanguageToggle';
 import PopoverMenu from '../../basic/PopoverMenu';
@@ -16,7 +16,7 @@ const MobileNavMenu = ({ pages }) => {
                     const isLast = index === pages.length - 1;
                     const isFist = index === 0;
 
-                    if (child_items.length) {
+                    if (child_items?.length) {
                         return (
                             <div
                                 key={index}
@@ -97,20 +97,37 @@ const NavbarMenu = ({ label, route, child_items }) => {
 
 export default function Header(props) {
     const {
+        block,
         block: { theme, params },
         page,
         website
     } = props;
 
     const route = page.getRoute();
-    const { signIn = false } = params;
+    const { signIn = false, joinMenus = false, extraMenu = '' } = params;
 
     const websiteProfile = website.getWebsiteProfile();
 
-    const pages = website.getPageHierarchy({
+    const blockLinks = block.getBlockLinks();
+    let pages = website.getPageHierarchy({
         nested: true,
         filterEmpty: true
     });
+
+    if (blockLinks.length) {
+        if (joinMenus) {
+            if (extraMenu) {
+                pages.push({
+                    label: extraMenu,
+                    child_items: blockLinks
+                });
+            } else {
+                pages.push(...blockLinks);
+            }
+        } else {
+            pages = blockLinks;
+        }
+    }
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -136,9 +153,13 @@ export default function Header(props) {
                             <MdMenu className='h-6 w-6' aria-hidden='true' />
                         </button>
                     </div>
-                    <div className='hidden lg:flex lg:gap-x-8 xl:gap-x-12'>
+                    <div
+                        className={twJoin(
+                            'hidden lg:flex',
+                            pages.length > 6 ? 'lg:gap-x-6 xl:gap-x-8' : 'lg:gap-x-8 xl:gap-x-12'
+                        )}>
                         {pages.map((page, index) => {
-                            if (page.child_items.length) {
+                            if (page.child_items?.length) {
                                 return <NavbarMenu key={index} {...page} />;
                             } else {
                                 const { route, label } = page;
