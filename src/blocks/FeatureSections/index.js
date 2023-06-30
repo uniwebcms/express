@@ -25,7 +25,7 @@ export default function FeatureSections(props) {
             <div className='space-y-16'>
                 {items.map((items, index) => {
                     const { title, subtitle, description, images, links } = items;
-                    console.log(links);
+
                     const image = images[0];
 
                     return (
