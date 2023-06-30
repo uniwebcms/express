@@ -7,6 +7,12 @@ import React, { cloneElement } from 'react';
  * @prop {JSX} children
  * @returns {function} A react component.
  */
-export default function SmartFooter({ children }) {
-    return <footer className={'mt-16 sm:mt-32'}>{cloneElement(children, { as: 'div' })}</footer>;
+export default function SmartFooter({ block }) {
+    const { childBlocks, Blocks } = block;
+    return (
+        <footer className={'mt-16 sm:mt-32'}>
+            <Blocks blocks={childBlocks} as='div'></Blocks>
+            {/* {cloneElement(children, { as: 'div' })} */}
+        </footer>
+    );
 }

@@ -156,7 +156,7 @@ export default function SpeedDial(props) {
     }
 
     const markup = (
-        <Container as={as} className='bg-[var(--primary)]'>
+        <Container as={as}>
             <div className='flex [&>*:nth-child(n+2)]:hidden md:[&>*:nth-child(n+2)]:block md:[&>*:nth-child(n+4)]:hidden lg:[&>*:nth-child(n+4)]:block lg:[&>*:nth-child(n+6)]:hidden xl:[&>*:nth-child(n+6)]:block xl:[&>*:nth-child(n+8)]:hidden 2xl:[&>*:nth-child(n+8)]:block'>
                 {pageCols.map((page, index) => {
                     const { title, route, inputs, links } = page;
