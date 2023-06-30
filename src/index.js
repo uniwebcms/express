@@ -20,6 +20,9 @@ import HeaderSection from './blocks/HeaderSection';
 import Header from './blocks/Header';
 import Footer from './blocks/Footer';
 import FeatureSections from './blocks/FeatureSections';
+import Testimonial from './blocks/Testimonial';
+import NewsletterSection from './blocks/NewsletterSection';
+import LogoClouds from './blocks/LogoClouds';
 
 export {
     Container,
@@ -45,5 +48,8 @@ export {
     HeaderSection,
     Header,
     Footer,
-    FeatureSections
+    FeatureSections,
+    Testimonial,
+    NewsletterSection,
+    LogoClouds
 };
