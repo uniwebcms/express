@@ -1,8 +1,8 @@
 # Uniweb Express
 
-[Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and build websites from templates. The logic that is necessary for creating the user interface of a website exists at the level of **web components** that are powered by the web engine.
+[Uniweb CMS](https://uniwebcms.com) is a **web engine** with advanced built-in intelligence to manage rich data and build websites from templates. The logic that is necessary for creating the user interface of a website exists at the level of **web components** and the underlying power of the web engine.
 
-A Uniweb **website template** can be created without technical knowledge thanks to the fact that it is simply a set of options that guide the process of building a website automatically. We refer to that process as **self-building website**. A website template specifies the web components that are needed to define a self-building website.
+Creating a **website template** requires no technical knowledge because there is no coding involved. A template is simply a configuration profile that guides the process of building a website automatically. That automated process is what we call a **self-building website**. In short, a website template specifies the web components that are required for a self-building website.
 
 **Uniweb Express** is a component library of low-level and general-purposed web components that can be used to create collections of higher-level and/or specialized components.
 
@@ -10,7 +10,7 @@ A Uniweb **website template** can be created without technical knowledge thanks 
 
 One of the main goals of the Uniweb engine is to provide the information that web components need to achieve their visual results without needing any input from the owner of a website. For example, a navigation bar component (**navbar**) may need information about the page structure of the website and the active webpage.
 
-Because the engine has access to both the template and the website data it can provide information about the structure of the site and how its current data fits into it. We can illustrate this concept by continuing the above example of a **navbar**. When rendering a navbar, we not only need to know the page structure of the site but also which pages currently have meaningful information so that the navbar can show menu links that only point to them. For example, a template for a personal website may define a page that shows a list of projects to which the website owner belongs. Some users of the template may indeed have projects to show but other may not. Whether the navbar shows a Projects menu or not depends on whether the website has projects to show or not.
+The engine has access to both the template and the website data so it can provide information about the structure of the site and how its current data fits into it. We can illustrate this concept by continuing the above example of a **navbar**. When rendering a navbar, we not only need to know the page structure of the site but also which pages currently have meaningful information so that the navbar can show menu links that only point to them. For example, a template for a personal website may define a page that shows a list of projects to which the website owner belongs. Some users of the template may indeed have projects to show but other may not. Whether the navbar shows a Projects menu or not depends on whether the website has projects to show or not.
 
 The conditional inclusion of navbar menus presents an interesting problem because the main logic for rendering pages is located in independent components that are unrelated to the navbar. This is a challenge that shows how the web engine is crucial for coordinating components so that the result is more than the sum of the parts.
 
