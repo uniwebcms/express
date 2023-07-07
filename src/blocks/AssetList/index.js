@@ -123,33 +123,39 @@ AssetList.Sort = ({ sort, setSort }) => {
  */
 export default function AssetList({
     profile,
-    section,
+    block,
     className = '',
     listWrapperClassName = 'grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-20 gap-20',
     controlWrapperClassName = 'flex justify-end items-center space-x-2',
     children,
     options
 }) {
-    if (children && !Array.isArray(children)) children = [children];
-
     const [searchText, setSearchText] = useState('');
     const [sort, setSort] = useState('');
 
-    const controlProps = {
+    if (children && !Array.isArray(children)) children = [children];
+
+    let section, field;
+
+    try {
+        [section, field] = profile.findRelationField(block.inputType);
+    } catch (err) {}
+
+    if (!section) return null;
+
+    const childProps = {
         searchText,
         setSearchText,
         sort,
         setSort
     };
 
-    if (!section) return null; // TODO: section can be optional, in case not given, should search across all section for assets
-
     return (
         <div className={className}>
             {children ? (
                 <div className={controlWrapperClassName}>
                     {children.map((child, index) =>
-                        cloneElement(child, { key: index, ...controlProps })
+                        cloneElement(child, { key: index, ...childProps })
                     )}
                 </div>
             ) : null}

@@ -43,7 +43,7 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
     content = (
         <div className='z-10 space-y-6'>
             <div
-                className='space-y-2'
+                className='space-y-2 max-w-3xl'
                 style={{
                     textShadow:
                         '3px 0px 7px var(--text-shadow), -3px 0px 7px var(--text-shadow), 0px 4px 7px var(--text-shadow)'
@@ -149,5 +149,5 @@ export default function HeaderSection(props) {
         markup = <CarouselItem item={items[0]} profile={page.getPageProfile()} />;
     }
 
-    return <div className={twJoin(block.theme, 'mt-16 sm:mt-32')}>{markup}</div>;
+    return <div className={block.theme}>{markup}</div>;
 }

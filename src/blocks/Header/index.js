@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Link, twJoin, Image, twMerge } from '@uniwebcms/module-sdk';
+import { Link, twJoin, Image } from '@uniwebcms/module-sdk';
 import SiteSearch from '../../basic/SiteSearch';
 import LanguageToggle from '../../basic/LanguageToggle';
 import PopoverMenu from '../../basic/PopoverMenu';
@@ -140,7 +140,7 @@ export default function Header(props) {
             <nav className='mx-auto px-4 sm:px-6 lg:max-w-7xl xl:max-w-8xl 2xl:max-w-9xl lg:px-12 py-6'>
                 <div className='relative flex items-center justify-center'>
                     <div className='absolute top-0 left-0'>
-                        <Link to='' className='block -m-1.5 p-1.5 pr-4 h-12 w-auto'>
+                        <Link to='' className='block h-12 w-auto -mt-[8px]'>
                             <Image profile={websiteProfile} type='avatar' />
                         </Link>
                     </div>

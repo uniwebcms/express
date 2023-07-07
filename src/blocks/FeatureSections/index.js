@@ -36,12 +36,18 @@ export default function FeatureSections(props) {
                                 className={twJoin(
                                     index % 2 === 0
                                         ? 'lg:col-start-1'
-                                        : 'lg:col-start-8 xl:col-start-9',
-                                    'mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4'
+                                        : 'lg:col-start-7 xl:col-start-8',
+                                    'mt-6 lg:col-span-6 lg:row-start-1 lg:mt-0 xl:col-span-5'
                                 )}>
-                                <h3 className='text-xl font-semibold text-gray-900'>{title}</h3>
-                                <h4 className='text-lg font-medium text-gray-500'>{subtitle}</h4>
-                                <p className='mt-1.5 text-base text-gray-700'>{description}</p>
+                                <h3 className='text-xl xl:text-2xl font-semibold text-gray-900'>
+                                    {title}
+                                </h3>
+                                <h4 className='text-lg mt-0 xl:mt-0.5 xl:text-xl font-medium text-gray-500'>
+                                    {subtitle}
+                                </h4>
+                                <p className='mt-1.5 xl:mt-2.5 text-base xl:text-lg text-gray-700'>
+                                    {description}
+                                </p>
                                 {links.length ? (
                                     <div className='mt-4 flex flex-wrap items-center'>
                                         {links.map((link, index) => (
@@ -61,9 +67,9 @@ export default function FeatureSections(props) {
                             <div
                                 className={twJoin(
                                     index % 2 === 0
-                                        ? 'lg:col-start-6 xl:col-start-5'
+                                        ? 'lg:col-start-8 xl:col-start-7'
                                         : 'lg:col-start-1',
-                                    'flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8'
+                                    'flex-auto lg:col-span-5 lg:row-start-1 xl:col-span-6'
                                 )}>
                                 <div className='aspect-h-2 aspect-w-5 overflow-hidden rounded-lg bg-gray-100'>
                                     {image ? (

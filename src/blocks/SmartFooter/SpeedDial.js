@@ -194,7 +194,7 @@ export default function SpeedDial(props) {
                                 </div>
                             </div>
                             {index < pageCols.length - 1 ? (
-                                <div className='w-px bg-gray-700 h-auto mx-5'></div>
+                                <div className='w-px bg-[var(--divider)] h-auto mx-5'></div>
                             ) : null}
                         </Fragment>
                     );
