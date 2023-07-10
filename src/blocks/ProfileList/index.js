@@ -6,7 +6,6 @@
 import React from 'react';
 import Container from '../../basic/Container';
 import { Link, useLinkedProfileFilterState, Image } from '@uniwebcms/module-sdk';
-import MediaHeader from '../../basic/MediaHeader';
 import Sorter from '../../basic/Sorter';
 import Filter from '../../basic/Filter';
 
@@ -14,15 +13,14 @@ const Card = ({ profile, properties = {} }) => {
     const head = profile.getBasicInfo();
     const { title, subtitle } = head;
 
-    const { border = false, style } = properties;
+    const { borderless = false } = properties;
 
     return (
         <Link
             profile={profile}
             className={`overflow-hidden group hover:bg-gray-50 rounded-xl px-6 py-4 ${
-                border ? 'border' : ''
-            }`}
-            style={style}>
+                !borderless ? 'border' : ''
+            }`}>
             <div className='flex justify-between'>
                 <div className='w-20 h-20 rounded-full overflow-hidden'>
                     <Image profile={profile} type='banner' />
@@ -37,7 +35,13 @@ const Card = ({ profile, properties = {} }) => {
     );
 };
 
-const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, cardProperties }) => {
+const Cards = ({ mainProfile, profileType, section, properties, renderCard }) => {
+    const {
+        filter: showFilter = true,
+        sorting: hasSorting = true,
+        card: cardProperties = {}
+    } = properties;
+
     const [pt, vt = 'profile'] = profileType.split('/');
 
     const [filter, setFilter] = useLinkedProfileFilterState(mainProfile, `${pt}/${vt}`, section);
@@ -60,9 +64,13 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
             <ul
                 role='list'
                 className='grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3'>
-                {filtered.map((profile) => (
-                    <Card key={profile.key} profile={profile} properties={cardProperties} />
-                ))}
+                {filtered.map((profile) =>
+                    renderCard ? (
+                        renderCard(profile.key, profile, cardProperties)
+                    ) : (
+                        <Card key={profile.key} profile={profile} properties={cardProperties} />
+                    )
+                )}
             </ul>
         </div>
     );
@@ -79,12 +87,11 @@ const Cards = ({ mainProfile, profileType, section, showFilter, hasSorting, card
  * @returns {function} A react component.
  */
 export default function (props) {
-    const { profile, block, page, website } = props;
     const {
-        filter: showFilter = true,
-        sorting: hasSorting = true,
-        card
-    } = block.getBlockProperties();
+        profile,
+        block,
+        extra: { as = 'section', className = '', renderCard = undefined }
+    } = props;
 
     let { inputType: profileType, input: section } = block;
 
@@ -92,21 +99,19 @@ export default function (props) {
         [section] = profile.findRelationField(profileType);
     }
 
-    return (
-        <>
-            <MediaHeader page={page} website={website} />
-            <Container>
-                {profileType && section ? (
-                    <Cards
-                        mainProfile={profile}
-                        profileType={profileType}
-                        section={section}
-                        showFilter={showFilter}
-                        hasSorting={hasSorting}
-                        cardProperties={card}
-                    />
-                ) : null}
+    if (profileType && section) {
+        return (
+            <Container as={as} className={className}>
+                <Cards
+                    mainProfile={profile}
+                    profileType={profileType}
+                    section={section}
+                    properties={block.getBlockProperties()}
+                    renderCard={renderCard}
+                />
             </Container>
-        </>
-    );
+        );
+    }
+
+    return null;
 }
