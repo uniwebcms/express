@@ -55,7 +55,7 @@ export default function FeatureSections(props) {
                                                 key={index}
                                                 to={link.href}
                                                 className={twMerge(
-                                                    'border rounded-xl bg-gray-100 hover:bg-gray-200 px-4 py-1.5 text-sm',
+                                                    'border rounded-xl bg-[var(--link-bg)] hover:bg-[var(--link-bg-hover)] px-4 py-1.5 text-sm font-semibold',
                                                     index === 0 ? 'mr-2' : 'mx-2'
                                                 )}>
                                                 {link.label}

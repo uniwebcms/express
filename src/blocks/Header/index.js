@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Link, twJoin, Image } from '@uniwebcms/module-sdk';
+import { Link, twJoin, Image, twMerge } from '@uniwebcms/module-sdk';
 import SiteSearch from '../../basic/SiteSearch';
 import LanguageToggle from '../../basic/LanguageToggle';
 import PopoverMenu from '../../basic/PopoverMenu';
@@ -104,6 +104,8 @@ export default function Header(props) {
     } = props;
 
     const route = page.getRoute();
+    const activeRoute = page.activeRoute;
+
     const { signIn = false, joinMenus = false, extraMenu = '' } = params;
 
     const websiteProfile = website.getWebsiteProfile();
@@ -138,13 +140,15 @@ export default function Header(props) {
     return (
         <header className={twJoin('z-10', theme)}>
             <nav className='mx-auto px-4 sm:px-6 lg:max-w-7xl xl:max-w-8xl 2xl:max-w-9xl lg:px-12 py-6'>
-                <div className='relative flex items-center justify-center'>
+                <div
+                    className='relative flex items-center justify-center'
+                    style={{ minHeight: '24px' }}>
                     <div className='absolute top-0 left-0'>
-                        <Link to='' className='block h-12 w-auto -mt-[8px]'>
+                        <Link to='' className='block h-12 w-auto -mt-[12px]'>
                             <Image profile={websiteProfile} type='avatar' />
                         </Link>
                     </div>
-                    <div className='absolute top-0 right-0 lg:hidden'>
+                    <div className='absolute top-0 right-0 h-6 lg:hidden'>
                         <button
                             type='button'
                             className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700'
@@ -163,12 +167,16 @@ export default function Header(props) {
                                 return <NavbarMenu key={index} {...page} />;
                             } else {
                                 const { route, label } = page;
+                                const active = route === activeRoute;
 
                                 return (
                                     <Link
                                         key={index}
                                         to={route}
-                                        className='text-base lg:text-lg font-semibold text-gray-700 hover:text-gray-900 pr-0.5'>
+                                        className={twMerge(
+                                            'text-base lg:text-lg font-semibold pr-0.5',
+                                            active && '!text-[var(--link-active)]'
+                                        )}>
                                         {label}
                                     </Link>
                                 );
