@@ -24,12 +24,13 @@ import PageHeader from './blocks/PageHeader';
 import PageFooter from './blocks/PageFooter';
 import Header from './blocks/Header';
 import Article from './blocks/Article';
-import SpotLight from './blocks/Spotlight';
+import Spotlight from './blocks/Spotlight';
 import Map from './blocks/Map';
 import List from './blocks/List';
 import Form from './blocks/Form';
-import Quote from './blocks/Quote';
+import Quotes from './blocks/Quotes';
 import Details from './blocks/Details';
+import Features from './blocks/Features';
 
 export {
     Container,
@@ -58,10 +59,11 @@ export {
     PageFooter,
     Header,
     Article,
-    SpotLight,
+    Spotlight,
     Map,
     List,
     Form,
-    Quote,
-    Details
+    Quotes,
+    Details,
+    Features
 };

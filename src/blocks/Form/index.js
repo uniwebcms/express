@@ -19,7 +19,7 @@ export default function Form(props) {
         <div
             className={twJoin(
                 block.theme,
-                'mt-16 sm:mt-32 max-w-2xl mx-auto border rounded-xl px-8 py-6 shadow-lg'
+                'max-w-2xl mx-auto border rounded-xl px-8 py-6 shadow-lg'
             )}>
             {widget}
         </div>

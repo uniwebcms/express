@@ -65,9 +65,8 @@ export default function (props) {
     );
 
     let Wrapper = props.Wrapper || Container;
-    let wrapperClassName = props.wrapperClassName || 'mt-16 sm:mt-32';
+    let wrapperClassName = props.wrapperClassName || '';
 
-    console.log('Wrapper', Wrapper);
     return (
         <>
             <Wrapper className={wrapperClassName}>

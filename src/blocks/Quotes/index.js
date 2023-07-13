@@ -3,7 +3,7 @@ import { Carousel as FbCarousel } from 'flowbite-react';
 import { twJoin, Image } from '@uniwebcms/module-sdk';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 
-export default function Quote(props) {
+export default function Quotes(props) {
     const { block, page } = props;
 
     let items = block.getBlockItems();
@@ -25,7 +25,7 @@ export default function Quote(props) {
     return (
         <div
             className={twJoin(
-                'mt-16 sm:mt-32 h-[400px]',
+                'py-24 sm:py-32',
                 block.theme,
                 background && 'relative flex items-center',
                 `justify-${align}`
@@ -35,11 +35,10 @@ export default function Quote(props) {
                     <Image profile={page.profile} value={background.value} alt={background.alt} />
                 </div>
             ) : null}
-
             <FbCarousel
                 slideInterval={5000}
-                className='mx-16 w-full md:w-96 lg:w-2/5 bg-[color:var(--primary,#eee)] z-10 px-16 py-8 rounded-xl shadow-lg'
-                style={{ height: '70%' }}
+                className='mx-16 sm:mx-20 w-full md:w-96 lg:w-2/5 bg-[color:var(--primary,#eee)] z-10 px-16 py-8 rounded-xl shadow-lg'
+                style={{ height: '280px' }}
                 leftControl={
                     <div className='w-8 h-8 rounded-full p-1 bg-gray-100 hover:bg-gray-200 text-gray-400 hover:text-white'>
                         <HiOutlineChevronLeft className='w-full h-full' />

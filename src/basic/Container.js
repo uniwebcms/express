@@ -25,9 +25,7 @@ import { twMerge } from '@uniwebcms/module-sdk';
  */
 export default function ({ as: Component = 'section', children, className = '', ...rest }) {
     return (
-        <Component
-            className={twMerge('py-8 md:py-12 xl:py-16 mt-16 sm:mt-32', className)}
-            {...rest}>
+        <Component className={twMerge('py-24 sm:py-32', className)} {...rest}>
             {typeof Component === 'string' ? (
                 <div className='mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:max-w-7xl xl:max-w-8xl 2xl:max-w-9xl lg:px-12'>
                     {children}

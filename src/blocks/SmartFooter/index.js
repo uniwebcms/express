@@ -10,7 +10,7 @@ import React, { cloneElement } from 'react';
 export default function SmartFooter({ block }) {
     const { childBlocks, Blocks } = block;
     return (
-        <footer className={'mt-16 sm:mt-32'}>
+        <footer>
             <Blocks blocks={childBlocks} as='div'></Blocks>
         </footer>
     );

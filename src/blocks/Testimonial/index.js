@@ -29,8 +29,8 @@ export default function Testimonial(props) {
     }
 
     return (
-        <div className={twJoin(theme, 'mt-16 sm:mt-32 py-16 sm:py-24')}>
-            <div className='relative overflow-hidden px-6 py-20 shadow-xl sm:px-10 sm:py-24 md:px-12 lg:px-20'>
+        <div className={theme}>
+            <div className='relative overflow-hidden px-6 py-24 sm:py-32 shadow-xl sm:px-10 md:px-12 lg:px-20'>
                 {banner ? (
                     <>
                         <Image
