@@ -12,7 +12,6 @@ export default function SmartFooter({ block }) {
     return (
         <footer className={'mt-16 sm:mt-32'}>
             <Blocks blocks={childBlocks} as='div'></Blocks>
-            {/* {cloneElement(children, { as: 'div' })} */}
         </footer>
     );
 }

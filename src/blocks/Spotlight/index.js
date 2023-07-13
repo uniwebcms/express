@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '../../basic/Container';
 import { twJoin, Image, Link, twMerge } from '@uniwebcms/module-sdk';
 
-export default function FeatureSections(props) {
+export default function SpotLight(props) {
     const { block, page } = props;
 
     const theme = block.theme;
@@ -21,7 +21,7 @@ export default function FeatureSections(props) {
     }
 
     return (
-        <Container className={twJoin('mt-16', theme)}>
+        <Container className={theme}>
             <div className='space-y-16'>
                 {items.map((items, index) => {
                     const { title, subtitle, description, images, links } = items;

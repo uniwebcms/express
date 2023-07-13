@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '../../basic/Container';
 import { Link, twJoin } from '@uniwebcms/module-sdk';
 
-export default function footer(props) {
+export default function PageFooter(props) {
     const {
         profile,
         block: { theme, params },
