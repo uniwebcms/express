@@ -29,6 +29,7 @@ import Map from './blocks/Map';
 import List from './blocks/List';
 import Form from './blocks/Form';
 import Quote from './blocks/Quote';
+import Details from './blocks/Details';
 
 export {
     Container,
@@ -61,5 +62,6 @@ export {
     Map,
     List,
     Form,
-    Quote
+    Quote,
+    Details
 };

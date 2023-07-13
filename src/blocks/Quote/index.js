@@ -7,11 +7,16 @@ export default function Quote(props) {
     const { block, page } = props;
 
     let items = block.getBlockItems();
-    let { align = 'left' } = block.getBlockProperties();
+
+    block.childBlocks.forEach((childBlock) => {
+        items.push(...childBlock.getBlockItems());
+    });
 
     const background = items[0].banner || null;
 
     items = items.filter((item) => item.description);
+
+    let { align = 'left' } = block.getBlockProperties();
 
     if (align === 'left') align = 'start';
     else if (align === 'right') align = 'end';

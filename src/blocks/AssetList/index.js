@@ -123,7 +123,7 @@ AssetList.Sort = ({ sort, setSort }) => {
  *
  * @deprecated This component is no longer recommended for use, use List instead.
  */
-export default function ({
+export default function AssetList({
     profile,
     block,
     className = '',
