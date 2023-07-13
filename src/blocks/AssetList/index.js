@@ -120,8 +120,10 @@ AssetList.Sort = ({ sort, setSort }) => {
  * @prop {string} controlWrapperClassName - The className for the wrapper component of the controls.
  * @prop {object} options - Options for the list of cards, including the field name in the section representing the asset file, asset title, and asset description to be displayed.
  * @returns {function} A react component.
+ *
+ * @deprecated This component is no longer recommended for use, use List instead.
  */
-export default function AssetList({
+export default function ({
     profile,
     block,
     className = '',

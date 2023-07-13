@@ -1,9 +1,16 @@
+/**
+ * @module block/NewsletterSection
+ */
+
 import React from 'react';
 import { twJoin } from '@uniwebcms/module-sdk';
 import Newsletter from '../../basic/Newsletter';
 
-export default function NewsletterSection(props) {
-    const { website, block } = props;
+/**
+ * @deprecated This component is no longer recommended for use. Use Form instead.
+ */
+export default function (props) {
+    const { block } = props;
 
     const { title } = props.block.getBlockHeader();
 

@@ -31,6 +31,8 @@ import { website } from '../core';
  * @prop {string} height - The height of the map element
  * @prop {string} [width] - The width of the map element
  * @returns {function} A Map component.
+ *
+ * @deprecated This component is not long used, use the one in blocks
  */
 export default function Map(props) {
     const { APIKey, center, zoom, markerPositions = [], height = '600px', width = '800px' } = props;

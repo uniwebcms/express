@@ -85,6 +85,8 @@ const Cards = ({ mainProfile, profileType, section, properties, renderCard }) =>
  * @prop {Page} page - The page that contains the block.
  * @prop {Website} website - The website that contains the page.
  * @returns {function} A react component.
+ *
+ * @deprecated This component is no longer recommended for use, use List instead.
  */
 export default function (props) {
     const {
