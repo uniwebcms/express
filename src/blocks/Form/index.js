@@ -11,17 +11,20 @@ export default function Form(props) {
 
     if (type === 'newsletter') {
         widget = (
-            <Newsletter title={title} buttonColor='var(--primary)' buttonLabel={buttonLabel} />
+            <Newsletter
+                title={title}
+                buttonBgColor='var(--on_primary)'
+                buttonColor='var(--primary)'
+                buttonLabel={buttonLabel}
+            />
         );
     }
 
     return (
-        <div
-            className={twJoin(
-                block.theme,
-                'max-w-2xl mx-auto border rounded-xl px-8 py-6 shadow-lg'
-            )}>
-            {widget}
+        <div className={twJoin('py-16 sm:py-24', block.theme)}>
+            <div className='max-w-sm mx-auto border border-[color:var(--primary)] rounded-xl px-8 py-6 shadow-lg bg-[var(--primary)]'>
+                {widget}
+            </div>
         </div>
     );
 }

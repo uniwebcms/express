@@ -5,17 +5,17 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import './index.css';
 
 const CarouselItem = ({ item, profile, setItemHovered }) => {
-    const { title, subtitle, images, links, properties } = item;
+    const { title, subtitle, images, links, banner, properties } = item;
 
     const { contentPosition = 'mid-center', gradient = false } = properties;
 
-    const banner = images[0];
+    const bg = banner || images[0];
 
     let background = null,
         content = null;
 
-    if (banner) {
-        const { value, alt } = banner;
+    if (bg) {
+        const { value, alt } = bg;
 
         background = (
             <Image

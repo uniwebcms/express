@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../../basic/Container';
-import { twJoin, Image, Link, twMerge } from '@uniwebcms/module-sdk';
+import { twJoin, Image, Link, twMerge, SafeHtml } from '@uniwebcms/module-sdk';
 
 export default function SpotLight(props) {
     const { block, page } = props;
@@ -39,15 +39,15 @@ export default function SpotLight(props) {
                                         : 'lg:col-start-7 xl:col-start-8',
                                     'mt-6 lg:col-span-6 lg:row-start-1 lg:mt-0 xl:col-span-5'
                                 )}>
-                                <h3 className='text-xl xl:text-2xl font-semibold text-gray-900'>
-                                    {title}
-                                </h3>
-                                <h4 className='text-lg mt-0 xl:mt-0.5 xl:text-xl font-medium text-gray-500'>
+                                <h2 className='text-xl xl:text-2xl font-semibold'>{title}</h2>
+                                <h3 className='text-lg mt-0 xl:mt-0.5 xl:text-xl font-medium'>
                                     {subtitle}
-                                </h4>
-                                <p className='mt-1.5 xl:mt-2.5 text-base xl:text-lg text-gray-700'>
-                                    {description}
-                                </p>
+                                </h3>
+                                <SafeHtml
+                                    as='p'
+                                    value={description}
+                                    className='mt-1.5 xl:mt-2.5 text-base xl:text-lg'
+                                />
                                 {links.length ? (
                                     <div className='mt-4 flex flex-wrap items-center'>
                                         {links.map((link, index) => (

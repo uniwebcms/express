@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel as FbCarousel } from 'flowbite-react';
-import { twJoin, Image } from '@uniwebcms/module-sdk';
+import { twJoin, Image, SafeHtml } from '@uniwebcms/module-sdk';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 
 export default function Quotes(props) {
@@ -56,10 +56,17 @@ export default function Quotes(props) {
 
                     return (
                         <div key={index} className='h-full w-full'>
-                            <h3 className='text-2xl font-bold text-[var(--on-primary,#000000)]'>
+                            <h3
+                                className='text-2xl font-bold'
+                                style={{ color: 'var(--on_primary,#000000)' }}>
                                 {title}
                             </h3>
-                            <p className='text-lg line-clamp-4 mt-2.5'>{description}</p>
+                            <SafeHtml
+                                as='p'
+                                value={description}
+                                className='text-lg line-clamp-4 mt-2.5'
+                                style={{ color: 'var(--on_primary,#000000)' }}
+                            />
                             <div className='flex space-x-3 mt-3.5 items-center'>
                                 {avatar ? (
                                     <div className='h-8 w-8'>
@@ -71,7 +78,11 @@ export default function Quotes(props) {
                                         />
                                     </div>
                                 ) : null}
-                                <p className='text-base font-medium text-gray-700'>{subtitle}</p>
+                                <p
+                                    className='text-base font-medium'
+                                    style={{ color: 'var(--on_primary,#000000)' }}>
+                                    {subtitle}
+                                </p>
                             </div>
                         </div>
                     );

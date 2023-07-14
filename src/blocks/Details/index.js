@@ -1,6 +1,6 @@
 import React from 'react';
+import { SafeHtml } from '@uniwebcms/module-sdk';
 import Container from '../../basic/Container';
-import { twJoin } from '@uniwebcms/module-sdk';
 import { Disclosure } from '@headlessui/react';
 import { HiMinusSm, HiPlusSm } from 'react-icons/hi';
 
@@ -54,7 +54,10 @@ export default function (props) {
                                         </Disclosure.Button>
                                     </dt>
                                     <Disclosure.Panel as='dd' className='mt-2 pr-12'>
-                                        <p className='text-base leading-7'>{item.subtitle}</p>
+                                        <SafeHtml
+                                            value={item.description}
+                                            className='text-base leading-7'
+                                        />
                                     </Disclosure.Panel>
                                 </>
                             )}

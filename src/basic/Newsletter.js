@@ -10,6 +10,7 @@ export default function Newsletter(props) {
             fr: "S'abonner à ma lettre d'information"
         }),
         buttonColor = '#2590EB',
+        buttonBgColor = '#0003ca',
         buttonLabel = website.localize({ en: 'Subscribe', fr: "S'abonner" })
     } = props;
 
@@ -58,8 +59,8 @@ export default function Newsletter(props) {
                 <button
                     type='submit'
                     className='flex-none ml-4 flex items-center justify-center h-full w-28 rounded-md opacity-75 hover:opacity-100 text-[15px] shadow-md'
-                    style={{ backgroundColor: buttonColor }}>
-                    <span>{buttonIcon || buttonLabel}</span>
+                    style={{ backgroundColor: buttonBgColor }}>
+                    <span style={{ color: buttonColor }}>{buttonIcon || buttonLabel}</span>
                 </button>
             </form>
         </div>

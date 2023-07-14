@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../../basic/Container';
-import { Image, Link, twJoin } from '@uniwebcms/module-sdk';
+import { Image, Link, twJoin, SafeHtml } from '@uniwebcms/module-sdk';
 
 export default function Features(props) {
     const { block, page, website } = props;
@@ -51,7 +51,11 @@ export default function Features(props) {
                                     </div>
                                     <h3 className='text-lg font-semibold leading-7'>{title}</h3>
                                 </dt>
-                                <dd className='mt-1 text-base leading-7'>{description}</dd>
+                                <SafeHtml
+                                    as='dd'
+                                    value={description}
+                                    className='mt-1 text-base leading-7'
+                                />
                                 {link ? (
                                     <dd className='mt-2.5 flex items-center space-x-2'>
                                         <Link
