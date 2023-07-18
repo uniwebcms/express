@@ -23,9 +23,7 @@ export default function (props) {
     return (
         <Container className={block.theme}>
             <div className='divide-y divide-gray-900/10'>
-                <h2 className='text-2xl font-bold leading-10 tracking-tight text-gray-900'>
-                    {title}
-                </h2>
+                <h2 className='text-3xl font-bold leading-10 tracking-tight'>{title}</h2>
                 <dl className='mt-10 space-y-6 divide-y divide-gray-900/10'>
                     {items.map((item, index) => (
                         <Disclosure as='div' key={index} className='pt-6'>

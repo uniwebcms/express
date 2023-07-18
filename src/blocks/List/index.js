@@ -5,6 +5,7 @@
 import React from 'react';
 import ProfileList from './ProfileList';
 import AssetList from './AssetList';
+import GenericList from './GenericList';
 
 export default function List(props) {
     const {
@@ -15,7 +16,7 @@ export default function List(props) {
         return <ProfileList {...props} />;
     } else if (input) {
         return <AssetList {...props} />;
+    } else {
+        return <GenericList {...props} />;
     }
-
-    return null;
 }

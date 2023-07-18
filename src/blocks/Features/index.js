@@ -25,7 +25,7 @@ export default function Features(props) {
         <Container className={twJoin('py-24 sm:py-32', block.theme)}>
             <div className='mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
                 <div>
-                    <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>{title}</h2>
+                    <h2 className='text-3xl font-bold leading-10 tracking-tight'>{title}</h2>
                     <h3 className='text-xl font-semibold tracking-tight sm:text-2xl'>{subtitle}</h3>
                 </div>
 

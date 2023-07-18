@@ -35,7 +35,7 @@ const Card = ({ profile, properties = {} }) => {
     );
 };
 
-const Cards = ({ mainProfile, profileType, section, properties, renderCard }) => {
+const Cards = ({ mainProfile, profileType, section, properties, renderCard, className }) => {
     const {
         filter: showFilter = true,
         sorting: hasSorting = true,
@@ -61,9 +61,7 @@ const Cards = ({ mainProfile, profileType, section, properties, renderCard }) =>
                     {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
                 </div>
             </div>
-            <ul
-                role='list'
-                className='grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3'>
+            <ul role='list' className={className}>
                 {filtered.map((profile) =>
                     renderCard ? (
                         renderCard(profile.key, profile, cardProperties)
@@ -90,7 +88,11 @@ export default function (props) {
     const {
         profile,
         block,
-        extra: { as = 'section', className = '', renderCard = undefined }
+        extra: {
+            as = 'section',
+            className = 'grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3',
+            renderCard = undefined
+        }
     } = props;
 
     let { inputType: profileType, input: section } = block;
@@ -101,13 +103,14 @@ export default function (props) {
 
     if (profileType && section) {
         return (
-            <Container as={as} className={className}>
+            <Container as={as} className={block.theme}>
                 <Cards
                     mainProfile={profile}
                     profileType={profileType}
                     section={section}
                     properties={block.getBlockProperties()}
                     renderCard={renderCard}
+                    className={className}
                 />
             </Container>
         );
