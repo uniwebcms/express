@@ -1,15 +1,16 @@
 /**
  * Render a page block that contains profile assets as cards and control widgets
- * @module blocks/AssetList
+ * @module blocks/List/AssetList
  */
 
-import React, { useState, cloneElement } from 'react';
+import React, { useState } from 'react';
+import Container from '../../basic/Container';
 import { Asset, FileLogo } from '@uniwebcms/module-sdk';
 import SearchBox from '../../basic/SearchBox';
-import Sorter from '../../basic/Sorter';
+import SorterWidget from '../../basic/Sorter';
 
 function Layout(props) {
-    const { profile, section, searchText = '', sort, options = {} } = props;
+    const { profile, section, searchText = '', sort, options = {}, renderCard } = props;
 
     const {
         assetField = 'file',
@@ -79,28 +80,34 @@ function Layout(props) {
         );
     };
 
-    const markup = value.map((itemValue, index) => (
-        <React.Fragment key={index}>{getValueRenderer(itemValue, index)}</React.Fragment>
-    ));
+    const markup = value.map((itemValue, index) => {
+        if (renderCard) {
+            return renderCard(index, itemValue, options);
+        } else {
+            return (
+                <React.Fragment key={index}>{getValueRenderer(itemValue, index)}</React.Fragment>
+            );
+        }
+    });
 
     return markup;
 }
 
-AssetList.Search = ({ searchText, setSearchText, ...other }) => {
+const Searcher = ({ searchText, setSearchText }) => {
     const handleSearch = (newVal) => {
         setSearchText(newVal || '');
     };
 
-    return <SearchBox searchText={searchText} handleSearch={handleSearch} {...other} />;
+    return <SearchBox searchText={searchText} handleSearch={handleSearch} />;
 };
 
-AssetList.Sort = ({ sort, setSort }) => {
+const Sorter = ({ sort, setSort }) => {
     const handleSort = ({ _sort: newVal }) => {
         setSort(newVal || '');
     };
 
     return (
-        <Sorter
+        <SorterWidget
             filter={{ selection: { _sort: sort } }}
             setFilter={handleSort}
             menuCategories={{ edittime: false }}
@@ -113,27 +120,22 @@ AssetList.Sort = ({ sort, setSort }) => {
  *
  * @component AssetList
  * @prop {Profile} profile - A data profile.
- * @prop {string} section - The name of the section which contains the assets.
- * @prop {ReactNode} children - The child components to render. You can choose from [AssetList.Sort, AssetList.Search], or provide a custom React element.
- * @prop {string} className - The className for the wrapper component.
- * @prop {string} listWrapperClassName - The className for the wrapper component of the list of cards.
- * @prop {string} controlWrapperClassName - The className for the wrapper component of the controls.
- * @prop {object} options - Options for the list of cards, including the field name in the section representing the asset file, asset title, and asset description to be displayed.
+ * @prop {Block} block - The target block.
  * @returns {function} A react component.
  */
 export default function AssetList({
     profile,
     block,
-    className = '',
-    listWrapperClassName = 'grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-20 gap-20',
-    controlWrapperClassName = 'flex justify-end items-center space-x-2',
-    children,
-    options
+    extra: { as = 'section', className = '', renderCard = undefined }
 }) {
     const [searchText, setSearchText] = useState('');
     const [sort, setSort] = useState('');
 
-    if (children && !Array.isArray(children)) children = [children];
+    const {
+        search: showSearcher = true,
+        sorting: hasSorting = true,
+        asset: options = {}
+    } = block.getBlockProperties();
 
     let section, field;
 
@@ -143,35 +145,26 @@ export default function AssetList({
 
     if (!section) return null;
 
-    const childProps = {
-        searchText,
-        setSearchText,
-        sort,
-        setSort
-    };
-
     return (
-        <div className={className}>
-            {children ? (
-                <div className={controlWrapperClassName}>
-                    {children.map((child, index) =>
-                        cloneElement(child, { key: index, ...childProps })
-                    )}
+        <Container as={as} className={className}>
+            {hasSorting || showSearcher ? (
+                <div className='flex justify-end items-center space-x-2'>
+                    {showSearcher ? <Searcher {...{ searchText, setSearchText }} /> : null}
+                    {hasSorting ? <Sorter {...{ sort, setSort }} /> : null}
                 </div>
             ) : null}
-
-            <div className={listWrapperClassName}>
+            <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-20 gap-20'>
                 <Layout
                     {...{
                         profile,
                         section,
                         options,
-                        className: listWrapperClassName,
                         searchText,
-                        sort
+                        sort,
+                        renderCard
                     }}
                 />
             </div>
-        </div>
+        </Container>
     );
 }

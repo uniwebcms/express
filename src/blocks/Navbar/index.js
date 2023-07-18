@@ -95,7 +95,7 @@ const NavbarMenu = ({ label, route, child_items }) => {
     );
 };
 
-export default function PageHeader(props) {
+export default function Navbar(props) {
     const {
         block,
         block: { theme, params },

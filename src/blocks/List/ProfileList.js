@@ -1,6 +1,6 @@
 /**
  * Render a page with a media header and filterable profile cards.
- * @module blocks/ProfileList
+ * @module blocks/List/ProfileList
  */
 
 import React from 'react';
