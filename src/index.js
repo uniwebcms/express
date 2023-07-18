@@ -20,6 +20,7 @@ import Form from './blocks/Form';
 import Quotes from './blocks/Quotes';
 import Details from './blocks/Details';
 import Features from './blocks/Features';
+import Section from './blocks/Section';
 
 /// extended block
 import SmartFooter from './blocks/SmartFooter';
@@ -51,7 +52,8 @@ export {
     Form,
     Quotes,
     Details,
-    Features
+    Features,
+    Section
 };
 
 export { SmartFooter, SpeedDialFooter, SocialConnectorFooter, PlainFooter, LogoClouds };
