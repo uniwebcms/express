@@ -1,68 +1,93 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
-import { Image, Link } from '@uniwebcms/module-sdk';
+import { Image, Link, Profile } from '@uniwebcms/module-sdk';
 import Container from '../../basic/Container';
 
 export default function (props) {
-    const { website, profile, page } = props;
+    const {
+        website,
+        profile,
+        page,
+        block: { dataSource }
+    } = props;
 
     const pageTitle = page.getPageTitle();
     const pageLeadText = page.getPageLeadText();
 
-    const section = 'member_articles';
-
+    const [listArticles, setListArticles] = useState([]);
     const [filter, setFilter] = useState({ search: '', year: '' });
 
     const categories = new Set();
 
-    const articleMarkup = profile.renderProfileCards(
-        section,
-        (item, i) => {
-            const head = item.getBasicInfo();
+    const renderFn = (article, key) => {
+        const head = article.getBasicInfo();
 
-            const { title, date, subtitle, handle } = head;
+        const { title, date, subtitle, handle } = head;
 
-            return (
-                <li key={i}>
-                    <Link
-                        to={handle || item.getId()}
-                        className='cursor-pointer overflow-hidden rounded-md flex space-x-0 lg:space-x-6 border max-w-4xl relative !shadow hover:!shadow-lg'>
-                        <div className='w-44 h-44 flex-shrink-0 overflow-hidden hidden lg:block'>
-                            {/* <Image profile={item}></Image> */}
-                        </div>
-                        <div className='flex flex-col space-y-1 pl-4 pr-8 py-5'>
-                            <h2 className='font-bold text-lg lineClamp-2'>{title}</h2>
-                            <p className='text-base lineClamp-2 text-gray-600'>{subtitle}</p>
-                            <p className='text-sm text-gray-500'>{date}</p>
-                        </div>
-                    </Link>
-                </li>
-            );
-        },
-        (cards) => {
-            return cards
-                .filter((item) => {
-                    const { title, head } = item.getBasicInfo();
-                    const date = head.date || '';
+        return (
+            <li key={key}>
+                <Link
+                    to={handle || article.getId()}
+                    className='cursor-pointer overflow-hidden rounded-md flex space-x-0 lg:space-x-6 border max-w-4xl relative !shadow hover:!shadow-lg'>
+                    <div className='w-44 h-44 flex-shrink-0 overflow-hidden hidden lg:block'>
+                        <Image profile={article} type='banner'></Image>
+                    </div>
+                    <div className='flex flex-col space-y-1 pl-4 pr-8 py-5'>
+                        <h2 className='font-bold text-lg lineClamp-2'>{title}</h2>
+                        <p className='text-base lineClamp-2 text-gray-600'>{subtitle}</p>
+                        <p className='text-sm text-gray-500'>{date}</p>
+                    </div>
+                </Link>
+            </li>
+        );
+    };
 
-                    const yearLabel = date.split('-')[0];
+    const filterFn = (articles, categories) => {
+        return articles
+            .filter((article) => {
+                const { title, head } = article.getBasicInfo();
+                const date = head.date || '';
 
-                    if (yearLabel) categories.add(yearLabel);
+                const yearLabel = date.split('-')[0];
 
-                    let { search, year } = filter;
+                if (yearLabel) categories.add(yearLabel);
 
-                    let searchText = search.toLocaleLowerCase();
-                    let yearText = year.toLocaleLowerCase();
+                let { search, year } = filter;
 
-                    if (searchText && !title.toLocaleLowerCase().includes(searchText)) return false;
+                let searchText = search.toLocaleLowerCase();
+                let yearText = year.toLocaleLowerCase();
 
-                    if (yearText && !date.toLocaleLowerCase().includes(yearText)) return false;
+                if (searchText && !title.toLocaleLowerCase().includes(searchText)) return false;
 
-                    return true;
-                })
-                .sort((a, b) => (a.getBasicInfo()?.date < b.getBasicInfo()?.date ? 1 : -1));
+                if (yearText && !date.toLocaleLowerCase().includes(yearText)) return false;
+
+                return true;
+            })
+            .sort((a, b) => (a.getBasicInfo()?.date < b.getBasicInfo()?.date ? 1 : -1));
+    };
+
+    useEffect(() => {
+        if (dataSource && dataSource.contentType === 'list' && dataSource.contentId) {
+            Profile.getProfilesInList(dataSource.contentId).then((res) => {
+                res = res.filter((p) => p.contentType === 'articles');
+                setListArticles(res);
+            });
         }
-    );
+    }, [dataSource]);
+
+    let articleMarkup = null;
+
+    if (dataSource) {
+        const filtered = filterFn(listArticles, categories);
+        articleMarkup = filtered.map(renderFn);
+    } else {
+        try {
+            const [sectionName] = profile.findRelationField('articles');
+            articleMarkup = profile.renderProfileCards(sectionName, renderFn, (cards) =>
+                filterFn(cards, categories)
+            );
+        } catch (err) {}
+    }
 
     let Wrapper = props.Wrapper || Container;
     let wrapperClassName = props.wrapperClassName || '';
