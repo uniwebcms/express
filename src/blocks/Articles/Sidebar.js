@@ -51,7 +51,7 @@ export default function (props) {
                     <div className={`w-full mb-3 flex`}>
                         <SearchBox
                             placeholder={website.localize(placeholder)}
-                            filters={{ searchText }}
+                            searchText={searchText}
                             handleSearch={setSearchText}
                             live={true}
                             style={{ width: '100%' }}></SearchBox>

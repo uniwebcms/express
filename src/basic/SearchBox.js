@@ -3,7 +3,7 @@
  * @module SearchBox
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiSearch, HiX } from 'react-icons/hi';
 import { website } from '../core';
 
@@ -31,7 +31,7 @@ import { website } from '../core';
  * @returns {function} A search component.
  */
 export default function (props) {
-    const { placeholder = '', searchText = '', handleSearch, live = true } = props;
+    const { placeholder = '', searchText, handleSearch, live = false } = props;
 
     const style = { minWidth: '36px', height: '36px', ...props.style };
     const className = props.className;
@@ -46,7 +46,11 @@ export default function (props) {
 
     const focusClass = 'ring-2 ring-blue-400 border-transparent';
 
-    const inputValue = live ? searchText : input;
+    useEffect(() => {
+        if (live) {
+            setInput(searchText);
+        }
+    }, [live, searchText]);
 
     return (
         <div className={className} style={style}>
@@ -64,8 +68,9 @@ export default function (props) {
                         setFocused(false);
                     }}
                     onChange={(e) => {
-                        if (live) handleSearch(e.target.value);
-                        else {
+                        if (live) {
+                            handleSearch(e.target.value);
+                        } else {
                             setInput(e.target.value);
 
                             if (e.target.value === '') handleSearch('');
@@ -76,13 +81,13 @@ export default function (props) {
                             handleSearch(input);
                         }
                     }}
-                    value={inputValue}
+                    value={input}
                 />
                 <div
                     className={`w-9 h-full p-2 flex items-center justify-center absolute inset-y-0 right-0 ${
-                        inputValue ? '' : 'pointer-events-none'
+                        input ? '' : 'pointer-events-none'
                     }`}>
-                    {inputValue ? (
+                    {input ? (
                         <button
                             className='w-full h-full text-gray-300 hover:text-gray-700 focus:ring-0 focus:outline-none'
                             onClick={() => {
