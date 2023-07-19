@@ -21,13 +21,12 @@ const Item = ({ item, properties }) => {
     );
 };
 
-export default function GenericList(props) {
+export default function (props) {
     const {
         block,
         extra: { as = 'section', className = 'divide-y', renderCard = undefined }
     } = props;
 
-    console.log(block);
     let items = block.getBlockItems();
 
     block.childBlocks.forEach((childBlock) => {

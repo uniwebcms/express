@@ -31,7 +31,7 @@ import { website } from '../core';
  * @returns {function} A search component.
  */
 export default function (props) {
-    const { placeholder = '', searchText, handleSearch, live = false } = props;
+    const { placeholder = '', searchText, handleSearch, live = true } = props;
 
     const style = { minWidth: '36px', height: '36px', ...props.style };
     const className = props.className;
