@@ -41,9 +41,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
             ({
                 navbar: {
-                    title: 'My Site',
+                    title: 'Uniweb Express',
                     logo: {
-                        alt: 'My Site Logo',
+                        alt: 'Uniwebcms Logo',
                         src: 'img/logo.svg'
                     },
                     items: [
@@ -51,14 +51,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                             type: 'doc',
                             docId: 'intro',
                             position: 'left',
-                            label: 'Tutorial'
+                            label: 'Documentation'
                         }
-                        // { to: '/blog', label: 'Blog', position: 'left' },
-                        // {
-                        //     href: 'https://github.com/facebook/docusaurus',
-                        //     label: 'GitHub',
-                        //     position: 'right'
-                        // }
                     ]
                 },
                 footer: {
@@ -68,41 +62,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                             title: 'Docs',
                             items: [
                                 {
-                                    label: 'Tutorial',
+                                    label: 'Documentation',
                                     to: '/docs/intro'
                                 }
                             ]
                         }
-                        // {
-                        //     title: 'Community',
-                        //     items: [
-                        //         {
-                        //             label: 'Stack Overflow',
-                        //             href: 'https://stackoverflow.com/questions/tagged/docusaurus'
-                        //         },
-                        //         {
-                        //             label: 'Discord',
-                        //             href: 'https://discordapp.com/invite/docusaurus'
-                        //         },
-                        //         {
-                        //             label: 'Twitter',
-                        //             href: 'https://twitter.com/docusaurus'
-                        //         }
-                        //     ]
-                        // },
-                        // {
-                        //     title: 'More',
-                        //     items: [
-                        //         {
-                        //             label: 'Blog',
-                        //             to: '/blog'
-                        //         },
-                        //         {
-                        //             label: 'GitHub',
-                        //             href: 'https://github.com/facebook/docusaurus'
-                        //         }
-                        //     ]
-                        // }
                     ],
                     copyright: `Copyright © ${new Date().getFullYear()} @uniwebcms-express, Inc. Built with Docusaurus.`
                 },
