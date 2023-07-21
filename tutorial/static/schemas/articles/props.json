@@ -1,0 +1,27 @@
+{
+    "title": "props",
+    "type": "object",
+    "description": "Data passing from parent components to child components to configure and customize their behavior, appearance, and content.",
+    "properties": {
+        "profile": {
+            "type": "object",
+            "description": "The main profile."
+        },
+        "website": {
+            "type": "object",
+            "description": "The active website."
+        },
+        "page": {
+            "type": "object",
+            "description": "The current website page."
+        },
+        "block": {
+            "type": "object",
+            "description": "The current block in the website page."
+        },
+        "extra": {
+            "type": "object",
+            "description": "Extra properties from parent component."
+        }
+    }
+}
