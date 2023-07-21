@@ -3,7 +3,8 @@
  * @module Container
  */
 import React from 'react';
-import { twMerge } from '@uniwebcms/module-sdk';
+import { twMerge, Image } from '@uniwebcms/module-sdk';
+import { website } from '../core';
 
 /**
  * Define a wrapper that centers child elements with responsive max-width
@@ -23,16 +24,33 @@ import { twMerge } from '@uniwebcms/module-sdk';
  * @prop {ReactNode|ReactNodeArray} children - The contents for the Badge container.
  * @returns {function} A react component.
  */
-export default function ({ as: Component = 'section', children, className = '', ...rest }) {
+export default function ({
+    as: Component = 'section',
+    children,
+    className = '',
+    background = null,
+    ...rest
+}) {
+    const page = website.activePage;
+
     return (
-        <Component className={twMerge('py-24 sm:py-32', className)} {...rest}>
+        <Component className={twMerge('py-24 sm:py-32 relative', className)} {...rest}>
             {typeof Component === 'string' ? (
-                <div className='mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:max-w-7xl xl:max-w-8xl 2xl:max-w-9xl lg:px-12'>
+                <div className='mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:max-w-7xl xl:max-w-8xl 2xl:max-w-9xl lg:px-12 z-10'>
                     {children}
                 </div>
             ) : (
-                children
+                <div className='z-10'>{children}</div>
             )}
+            {background && page ? (
+                <div className='absolute top-0 left-0 w-full h-full'>
+                    <Image
+                        profile={page.getPageProfile()}
+                        value={background.value}
+                        alt={background.alt}
+                    />
+                </div>
+            ) : null}
         </Component>
     );
 }
