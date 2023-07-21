@@ -32,7 +32,11 @@ export default function Quotes(props) {
             )}>
             {background ? (
                 <div className='absolute insect-0 w-full h-full'>
-                    <Image profile={page.profile} value={background.value} alt={background.alt} />
+                    <Image
+                        profile={page.getPageProfile()}
+                        value={background.value}
+                        alt={background.alt}
+                    />
                 </div>
             ) : null}
             <FbCarousel
@@ -71,7 +75,7 @@ export default function Quotes(props) {
                                 {avatar ? (
                                     <div className='h-8 w-8'>
                                         <Image
-                                            profile={page.profile}
+                                            profile={page.getPageProfile()}
                                             value={avatar.value}
                                             alt={avatar.alt}
                                             rounded
