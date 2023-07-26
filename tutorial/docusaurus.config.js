@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         title: 'Express Documentation',
         tagline: 'Tutorial of Uniwebcms express',
         url: 'https://uniwebcms.github.io',
-        baseUrl: '/',
+        baseUrl: '/express/',
         onBrokenLinks: 'warn',
         onBrokenMarkdownLinks: 'warn',
         favicon: 'img/favicon.png',
