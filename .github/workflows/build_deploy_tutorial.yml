@@ -1,5 +1,10 @@
 name: Build and Deploy Tutorial to GitHub Pages
 
+defaults:
+    run:
+        shell: bash
+        working-directory: tutorial
+
 on:
     push:
         branches:
@@ -34,10 +39,9 @@ jobs:
 
             - name: Install dependencies
               run: yarn install --frozen-lockfile
-              working-directory: tutorial
+
             - name: Build website
               run: yarn build
-              working-directory: tutorial
 
             # Popular action to deploy to GitHub Pages:
             # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
