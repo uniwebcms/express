@@ -9,8 +9,9 @@ export default function Newsletter(props) {
             en: 'Subscribe to my newsletter',
             fr: "S'abonner à ma lettre d'information"
         }),
-        buttonColor = '#2590EB',
-        buttonBgColor = '#0003ca',
+        titleTextColor,
+        buttonTextColor,
+        buttonBgColor,
         buttonLabel = website.localize({ en: 'Subscribe', fr: "S'abonner" })
     } = props;
 
@@ -39,7 +40,9 @@ export default function Newsletter(props) {
 
     return (
         <div className='space-y-2.5 md:space-y-4'>
-            <h3 className='text-base font-medium'>{title}</h3>
+            <h3 className='text-base font-medium' style={{ color: titleTextColor }}>
+                {title}
+            </h3>
             <form onSubmit={handleOnSubmit} className='flex h-9'>
                 <input
                     type='email'
@@ -50,7 +53,7 @@ export default function Newsletter(props) {
                     aria-label='Email address'
                     required
                     className='min-w-0 flex-auto appearance-none rounded-md border bg-white px-3 py-2 shadow-md placeholder:text-zinc-400 ring-0 focus:outline-none focus:ring-2 focus:ring-offset-1 sm:text-sm text-gray-900'
-                    style={{ '--tw-ring-color': buttonColor }}
+                    style={{ '--tw-ring-color': buttonTextColor }}
                     value={email}
                     onChange={(e) => {
                         setEmail(e.target.value || '');
@@ -58,9 +61,9 @@ export default function Newsletter(props) {
                 />
                 <button
                     type='submit'
-                    className='flex-none ml-4 flex items-center justify-center h-full w-28 rounded-md opacity-75 hover:opacity-100 text-[15px] shadow-md'
+                    className='flex-none ml-4 flex items-center justify-center h-full w-28 rounded-md hover:opacity-100 text-[15px] shadow-md'
                     style={{ backgroundColor: buttonBgColor }}>
-                    <span style={{ color: buttonColor }}>{buttonIcon || buttonLabel}</span>
+                    <span style={{ color: buttonTextColor }}>{buttonIcon || buttonLabel}</span>
                 </button>
             </form>
         </div>

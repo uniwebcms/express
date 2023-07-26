@@ -37,6 +37,7 @@ const Card = ({ profile, properties = {} }) => {
 
 const Cards = ({ mainProfile, profileType, section, properties, renderCard, className }) => {
     const {
+        title = '',
         filter: showFilter = true,
         sorting: hasSorting = true,
         card: cardProperties = {}
@@ -49,27 +50,30 @@ const Cards = ({ mainProfile, profileType, section, properties, renderCard, clas
     const { filtered } = filter;
 
     return (
-        <div className='mt-4 sm:mt-8 space-y-14'>
-            <div className='flex justify-end'>
-                <div className='flex space-x-1 items-center'>
-                    {showFilter ? (
-                        <Filter filter={filter} setFilter={setFilter}>
-                            <Filter.Search />
-                            <Filter.Menu />
-                        </Filter>
-                    ) : null}
-                    {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
+        <div>
+            <h2 className='text-3xl font-bold leading-10 tracking-tight mb-2'>{title}</h2>
+            <div className='mt-4 sm:mt-8 space-y-14'>
+                <div className='flex justify-end'>
+                    <div className='flex space-x-1 items-center'>
+                        {showFilter ? (
+                            <Filter filter={filter} setFilter={setFilter}>
+                                <Filter.Search />
+                                <Filter.Menu />
+                            </Filter>
+                        ) : null}
+                        {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
+                    </div>
                 </div>
+                <ul role='list' className={className}>
+                    {filtered.map((profile) =>
+                        renderCard ? (
+                            renderCard(profile.key, profile, cardProperties)
+                        ) : (
+                            <Card key={profile.key} profile={profile} properties={cardProperties} />
+                        )
+                    )}
+                </ul>
             </div>
-            <ul role='list' className={className}>
-                {filtered.map((profile) =>
-                    renderCard ? (
-                        renderCard(profile.key, profile, cardProperties)
-                    ) : (
-                        <Card key={profile.key} profile={profile} properties={cardProperties} />
-                    )
-                )}
-            </ul>
         </div>
     );
 };

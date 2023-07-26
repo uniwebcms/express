@@ -132,38 +132,36 @@ export default function ({
     const [sort, setSort] = useState('');
 
     const {
+        title = '',
         search: showSearcher = true,
         sorting: hasSorting = true,
         asset: options = {}
     } = block.getBlockProperties();
 
-    let section, field;
-
-    try {
-        [section, field] = profile.findRelationField(block.inputType);
-    } catch (err) {}
-
-    if (!section) return null;
+    const section = block.input;
 
     return (
         <Container as={as} className={className}>
-            {hasSorting || showSearcher ? (
-                <div className='flex justify-end items-center space-x-2'>
-                    {showSearcher ? <Searcher {...{ searchText, setSearchText }} /> : null}
-                    {hasSorting ? <Sorter {...{ sort, setSort }} /> : null}
+            <h2 className='text-3xl font-bold leading-10 tracking-tight mb-2'>{title}</h2>
+            <div className='mt-4 sm:mt-8 space-y-14'>
+                {hasSorting || showSearcher ? (
+                    <div className='flex justify-end items-center space-x-2'>
+                        {showSearcher ? <Searcher {...{ searchText, setSearchText }} /> : null}
+                        {hasSorting ? <Sorter {...{ sort, setSort }} /> : null}
+                    </div>
+                ) : null}
+                <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-20'>
+                    <Layout
+                        {...{
+                            profile,
+                            section,
+                            options,
+                            searchText,
+                            sort,
+                            renderCard
+                        }}
+                    />
                 </div>
-            ) : null}
-            <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-20 gap-20'>
-                <Layout
-                    {...{
-                        profile,
-                        section,
-                        options,
-                        searchText,
-                        sort,
-                        renderCard
-                    }}
-                />
             </div>
         </Container>
     );

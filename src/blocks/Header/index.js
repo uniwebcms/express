@@ -40,6 +40,26 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
         'bottom-right': 'items-end justify-end text-right'
     };
 
+    let linkJustifyPosition;
+
+    if (contentPosition) {
+        const horizontalPosition = contentPosition.split('-')[1];
+
+        console.log('horizontalPosition', horizontalPosition);
+
+        switch (horizontalPosition) {
+            case 'left':
+                linkJustifyPosition = 'start';
+                break;
+            case 'right':
+                linkJustifyPosition = 'end';
+                break;
+            default:
+                linkJustifyPosition = 'center';
+                break;
+        }
+    }
+
     content = (
         <div className='z-10 space-y-6'>
             <div
@@ -52,7 +72,11 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
                 <p className='lg:text-2xl sm:text-xl text-base'>{subtitle}</p>
             </div>
             {links.length ? (
-                <div className='flex items-center justify-center space-x-4'>
+                <div
+                    className={twJoin(
+                        'flex items-center space-x-4',
+                        `justify-${linkJustifyPosition}`
+                    )}>
                     {links.map((link, index) => (
                         <a
                             key={index}

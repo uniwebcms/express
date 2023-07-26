@@ -39,16 +39,16 @@ export default function Features(props) {
                         return (
                             <div key={index}>
                                 <dt>
-                                    <div className='mb-4 h-12 w-12'>
-                                        {image ? (
+                                    {image ? (
+                                        <div className='mb-4 h-12 w-12'>
                                             <Image
                                                 profile={pageProfile}
                                                 value={image.value}
                                                 alt={image.value}
                                                 rounded={'rounded-lg'}
                                             />
-                                        ) : null}
-                                    </div>
+                                        </div>
+                                    ) : null}
                                     <h3 className='text-lg font-semibold leading-7'>{title}</h3>
                                 </dt>
                                 <SafeHtml
