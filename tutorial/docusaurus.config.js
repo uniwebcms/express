@@ -41,31 +41,39 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
             ({
                 navbar: {
-                    title: 'Uniweb Express',
+                    title: 'Express',
                     logo: {
-                        alt: 'Uniwebcms Logo',
-                        src: 'img/logo.svg'
+                        alt: 'UNIWEB Logo',
+                        src: 'img/uniweb_black.svg',
+                        srcDark: 'img/uniweb_white.svg',
+                        width: 120,
+                        style: { marginRight: '18px' }
                     },
                     items: [
                         {
                             type: 'doc',
-                            docId: 'intro',
+                            docId: 'articles',
                             position: 'left',
-                            label: 'Documentation'
+                            label: 'Components'
                         }
                     ]
                 },
                 footer: {
                     style: 'dark',
+                    logo: {
+                        alt: 'UNIWEB Logo',
+                        src: 'img/uniweb_white.svg',
+                        width: 160,
+                        height: 51
+                    },
                     links: [
                         {
-                            title: 'Docs',
-                            items: [
-                                {
-                                    label: 'Documentation',
-                                    to: '/docs/intro'
-                                }
-                            ]
+                            label: 'Home',
+                            to: '/'
+                        },
+                        {
+                            label: 'Components',
+                            to: '/docs/articles'
                         }
                     ],
                     copyright: `Copyright © ${new Date().getFullYear()} @uniwebcms-express, Inc. Built with Docusaurus.`
@@ -74,8 +82,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                     theme: lightCodeTheme,
                     darkTheme: darkCodeTheme
                 }
-            }),
-        // Allows use of @theme/JSONSchemaEditor or @theme/JSONSchemaViewer
-        themes: ['docusaurus-json-schema-plugin']
+            })
     }
 );

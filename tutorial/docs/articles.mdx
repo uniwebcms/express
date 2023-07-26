@@ -4,20 +4,19 @@ sidebar_label: Articles
 ---
 
 import CodeBlock from '@theme/CodeBlock';
-import Options from "@site/static/schemas/articles/options.json";
-import JSONSchemaViewer from "@theme/JSONSchemaViewer";
+import JSFormViewer from '../src/components/JSViewer.js';
+import Gallery from '../src/components/Gallery.js';
 
 # Articles
 
-A components that can render a list of articles with searching and sorting and article content of a individual article. 
+A components that can render a list of articles with searching and sorting and article content of a individual article.
 
-#### Articles data source: 
-- The articles section of the main profile.
-- The articles in a selected `List` profile.
+<Gallery images={['/img/articles/outcome.png']} sizes={[[1267, 818]]} />
 
-
-### Component options
-<JSONSchemaViewer schema={ Options } />
+#### Articles data source:
+-   The articles section of the main profile.
+-   The articles in a selected `List` profile.
 
 ### Website outcome
+
 ![Articles outcome](/img/articles/outcome.png)

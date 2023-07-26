@@ -5,16 +5,18 @@ sidebar_label: Details
 
 import CodeBlock from '@theme/CodeBlock';
 import Options from "@site/static/schemas/details/options.json";
-import JSONSchemaViewer from "@theme/JSONSchemaViewer";
+import JSFormViewer from '../src/components/JSViewer.js';
+import Gallery from '../src/components/Gallery.js';
 
 # Details
 
 A components that works like FAQs.
+<Gallery images={['/img/details/outcome.png']} sizes={[[1345,535]]}/>
 
+### Options
+<JSFormViewer schema={ Options } />
 
-### Component options
-<JSONSchemaViewer schema={ Options } />
-
+#### Option example
 ```json
 title: "My custom title"
 ```

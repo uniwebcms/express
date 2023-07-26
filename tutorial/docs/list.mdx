@@ -1,0 +1,50 @@
+---
+sidebar_position: 7
+sidebar_label: List
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Options from "@site/static/schemas/list/options.json";
+import JSFormViewer from '../src/components/JSViewer.js';
+import Gallery from '../src/components/Gallery.js';
+
+# List
+
+A component that can render a list of items.
+
+<Gallery images={['/img/list/outcome_1.png','/img/list/outcome_2.png','/img/list/outcome_3.png','/img/list/outcome_4.png']} sizes={[[1245, 951],[1606, 544],[1540, 953],[1240, 687]]}/>
+
+#### List item data source: 
+- The pre-selected profiles in a `List` profile.
+- The downloadable assets of the main profile.
+- The items from a docufolio.
+- The linked profiles to the main profile.
+
+### Options
+<JSFormViewer schema={ Options } />
+
+#### Option example
+- Profiles from a `List` & Linked profiles
+```json
+title: 'My title',
+filter: true,
+sorting: true,
+card: { 
+    borderless: true 
+}
+```
+- Downloadable assets
+```json
+title: 'My title',
+filter: true,
+sorting: true,
+asset: {
+    assetField: 'file',
+    titleField: 'display_name',
+    descriptionField: 'description'
+}
+```
+- Generic items from docufolio
+```json
+title: 'My title'
+```

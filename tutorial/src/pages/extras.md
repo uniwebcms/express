@@ -1,7 +1,0 @@
----
-title: Extras
----
-
-# Extras page
-
-

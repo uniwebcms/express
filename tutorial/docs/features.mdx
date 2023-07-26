@@ -1,0 +1,26 @@
+---
+sidebar_position: 4
+sidebar_label: Features
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import Options from "@site/static/schemas/features/options.json";
+import JSFormViewer from '../src/components/JSViewer.js';
+import Gallery from '../src/components/Gallery.js';
+
+# Features
+
+A component is designed to showcase multiple features in a visually appealing manner.
+<Gallery images={['/img/features/outcome.png']} sizes={[[1250,640]]}/>
+
+### Options
+<JSFormViewer schema={ Options } />
+
+#### Option example
+```json
+title: "My custom title",
+subtitle: "My custom subtitle"
+```
+
+### Website outcome
+![Details outcome](/img/features/outcome.png)
