@@ -1,0 +1,27 @@
+{
+    "title": "options",
+    "type": "object",
+    "properties": {
+        "contentPosition": {
+            "type": "string",
+            "enum": [
+                "'top-left'",
+                "'top-center'",
+                "'top-right'",
+                "'mid-left'",
+                "'mid-center'",
+                "'mid-right'",
+                "'bottom-left'",
+                "'bottom-center'",
+                "'bottom-right'"
+            ],
+            "description": "The position of the text in the header section.",
+            "default": "mid-center"
+        },
+        "gradient": {
+            "type": "boolean",
+            "description": "To control if enable the effect gradient to the background image.",
+            "default": false
+        }
+    }
+}

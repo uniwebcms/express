@@ -1,0 +1,16 @@
+{
+    "title": "options",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "The title of the features block.",
+            "default": "Features"
+        },
+        "subtitle": {
+            "type": "string",
+            "description": "The subtitle of the features block.",
+            "default": "\"\""
+        }
+    }
+}
