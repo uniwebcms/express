@@ -1,10 +1,5 @@
 name: Build and Deploy Tutorial to GitHub Pages
 
-defaults:
-    run:
-        shell: bash
-        working-directory: tutorial
-
 on:
     push:
         branches:
@@ -29,6 +24,10 @@ jobs:
     build_deploy:
         name: Build and Deploy
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
+                working-directory: tutorial
 
         steps:
             - uses: actions/checkout@v3
