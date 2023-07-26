@@ -50,7 +50,7 @@ jobs:
               uses: actions/upload-pages-artifact@v1
               with:
                   # Upload the dist folder only
-                  path: './build'
+                  path: './tutorial/build'
 
             - name: Deploy to GitHub Pages
               id: deployment
