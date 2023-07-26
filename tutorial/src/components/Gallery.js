@@ -2,7 +2,6 @@ import React from 'react';
 import { Gallery, Item } from 'react-photoswipe-gallery';
 import 'photoswipe/dist/photoswipe.css';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import './index.css';
 
 export default function (props) {
     const { images = [], sizes = [] } = props;
@@ -25,7 +24,7 @@ export default function (props) {
                         borderRadius: '8px'
                     }}>
                     {images.map((image, index) => {
-                        const finalUrl = `${baseUrl}${image}`;
+                        const finalUrl = `${baseUrl}${image}`.replace('//', '/');
 
                         return (
                             <Item
