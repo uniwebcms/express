@@ -12,9 +12,8 @@ export default function (props) {
                 <div
                     style={{
                         display: 'flex',
-                        padding: '30px 30px',
-                        rowGap: '30px',
-                        colGap: '20px',
+                        padding: '20px 20px',
+                        gap: '20px',
                         background: '#e5e5e5',
                         justifyContent: 'space-between',
                         flexWrap: 'wrap',
@@ -34,8 +33,8 @@ export default function (props) {
                                     onClick={open}
                                     style={{
                                         cursor: 'pointer',
-                                        width: '200px',
-                                        height: '200px',
+                                        width: '180px',
+                                        height: '180px',
                                         objectFit: 'contain',
                                         background: 'white',
                                         borderRadius: '8px',
