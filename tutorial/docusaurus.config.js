@@ -6,15 +6,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 (
     module.exports = {
         title: 'Express Documentation',
-        tagline: 'Dinosaurs are cool',
-        url: 'https://your-docusaurus-test-site.com',
+        tagline: 'Tutorial of Uniwebcms express',
+        url: 'https://uniwebcms.github.io',
         baseUrl: '/',
-        onBrokenLinks: 'throw',
+        onBrokenLinks: 'warn',
         onBrokenMarkdownLinks: 'warn',
-        favicon: 'img/favicon.ico',
-        organizationName: 'facebook', // Usually your GitHub org/user name.
-        projectName: 'docusaurus', // Usually your repo name.
-
+        favicon: 'img/favicon.png',
+        organizationName: 'uniwebcms',
+        projectName: 'express',
+        trailingSlash: false,
         presets: [
             [
                 '@docusaurus/preset-classic',
