@@ -1,0 +1,25 @@
+---
+sidebar_position: 7
+sidebar_label: Navbar
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import JSFormViewer from '../src/components/JSViewer.js';
+import Options from "@site/static/schemas/navbar/options.json";
+import Gallery from '../src/components/Gallery.js';
+
+# Navbar
+
+A navigation component renders a navabr with website logo, links, searching and more.
+
+<Gallery images={['/img/navbar/outcome.png']} sizes={[[1235, 191]]} />
+
+### Options
+<JSFormViewer schema={ Options } />
+
+#### Option example
+```json
+signIn: true,
+joinMenus: true,
+entraMenu: 'More'
+```

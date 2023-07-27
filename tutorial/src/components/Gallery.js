@@ -40,7 +40,7 @@ export default function (props) {
                                         style={{
                                             cursor: 'pointer',
                                             width: '180px',
-                                            height: '180px',
+                                            height: '130px',
                                             objectFit: 'contain',
                                             background: 'white',
                                             borderRadius: '8px',

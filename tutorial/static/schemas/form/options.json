@@ -8,11 +8,6 @@
             "description": "The type of the form.",
             "default": "newsletter"
         },
-        "title": {
-            "type": "string",
-            "description": "The title of the form.",
-            "default": "Subscribe to my newsletter"
-        },
         "buttonLabel": {
             "type": "string",
             "description": "The label of the action button.",

@@ -1,0 +1,11 @@
+{
+    "title": "options",
+    "type": "object",
+    "properties": {
+        "copyright": {
+            "type": "string",
+            "description": "The copyright string on the page footer, if not given, there will be auto-generated copyright which is the current year and the title of the main profile.",
+            "default": "''"
+        }
+    }
+}

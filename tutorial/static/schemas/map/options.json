@@ -1,0 +1,26 @@
+{
+    "title": "options",
+    "type": "object",
+    "properties": {
+        "center": {
+            "type": "object",
+            "description": "The initial lat and lng of the map center, both are numbers.",
+            "default": "{ lat: 45.424721, lng: -75.695 }"
+        },
+        "zoom": {
+            "type": "number",
+            "description": "The initial zoom level of the map.",
+            "default": "8"
+        },
+        "height": {
+            "type": "string",
+            "description": "The height of the map box.",
+            "default": "600px"
+        },
+        "width": {
+            "type": "string",
+            "description": "The width of the map box.",
+            "default": "100%"
+        }
+    }
+}

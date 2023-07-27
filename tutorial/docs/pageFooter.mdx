@@ -1,0 +1,23 @@
+---
+sidebar_position: 8
+sidebar_label: Page Footer
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import JSFormViewer from '../src/components/JSViewer.js';
+import Options from "@site/static/schemas/navbar/options.json";
+import Gallery from '../src/components/Gallery.js';
+
+# Page Footer
+
+A footer component renders auto-generated nav links and copyright.
+
+<Gallery images={['/img/pageFooter/outcome.png']} sizes={[[1220, 139]]} />
+
+### Options
+<JSFormViewer schema={ Options } />
+
+#### Option example
+```json
+copyright: 'My custome copyright.'
+```

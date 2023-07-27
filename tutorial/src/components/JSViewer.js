@@ -5,10 +5,12 @@ const Table = ({ schema }) => {
 
     const { properties } = schema;
 
+    const notOption = !Object.keys(properties).length;
+
     return (
         <table style={{ width: '100%' }}>
-            <thead style={{ width: '100%' }}>
-                <tr style={{ width: '100%' }}>
+            <thead>
+                <tr>
                     <th style={{ width: '15%' }}>Name</th>
                     <th style={{ width: '15%' }}>Type</th>
                     <th style={{ width: '25%' }}>Default</th>
@@ -17,42 +19,58 @@ const Table = ({ schema }) => {
             </thead>
 
             <tbody>
-                {Object.entries(properties).map(([key, value], index) => {
-                    const { type, default: defaultValue, description, enum: enumOpt } = value;
+                {notOption ? (
+                    <tr>
+                        <td
+                            colspan='4'
+                            style={{
+                                textAlign: 'center',
+                                background: '#f3f4f6',
+                                color: '#6b7280',
+                                fontWeight: 600,
+                                fontSize: '16px'
+                            }}>
+                            Not Applicable
+                        </td>
+                    </tr>
+                ) : (
+                    Object.entries(properties).map(([key, value], index) => {
+                        const { type, default: defaultValue, description, enum: enumOpt } = value;
 
-                    return (
-                        <tr key={index} style={{ fontSize: '15px' }}>
-                            <td style={{ fontWeight: 600, fontSize: '16px' }}>{key}</td>
-                            <td>
-                                <div
-                                    style={{
-                                        border: '1px solid rgb(209 213 219)',
-                                        background: 'rgb(243 244 246)',
-                                        padding: '2px 8px',
-                                        width: 'fit-content',
-                                        fontWeight: '500',
-                                        borderRadius: '8px',
-                                        color: 'rgb(55 65 81)',
-                                        fontSize: '14px'
-                                    }}>
-                                    {enumOpt?.length ? enumOpt.join(' | ') : type}
-                                </div>
-                            </td>
-                            <td>
-                                {defaultValue ? (
+                        return (
+                            <tr key={index} style={{ fontSize: '15px' }}>
+                                <td style={{ fontWeight: 600, fontSize: '16px' }}>{key}</td>
+                                <td>
                                     <div
                                         style={{
+                                            border: '1px solid rgb(209 213 219)',
+                                            background: 'rgb(243 244 246)',
+                                            padding: '2px 8px',
+                                            width: 'fit-content',
                                             fontWeight: '500',
-                                            color: 'rgb(75 85 99)'
+                                            borderRadius: '8px',
+                                            color: 'rgb(55 65 81)',
+                                            fontSize: '14px'
                                         }}>
-                                        {defaultValue.toString()}
+                                        {enumOpt?.length ? enumOpt.join(' | ') : type}
                                     </div>
-                                ) : null}
-                            </td>
-                            <td>{description}</td>
-                        </tr>
-                    );
-                })}
+                                </td>
+                                <td>
+                                    {defaultValue ? (
+                                        <div
+                                            style={{
+                                                fontWeight: '500',
+                                                color: 'rgb(75 85 99)'
+                                            }}>
+                                            {defaultValue.toString()}
+                                        </div>
+                                    ) : null}
+                                </td>
+                                <td>{description}</td>
+                            </tr>
+                        );
+                    })
+                )}
             </tbody>
         </table>
     );

@@ -1,0 +1,12 @@
+{
+    "title": "options",
+    "type": "object",
+    "properties": {
+        "align": {
+            "type": "string",
+            "enum": ["'left'", "'center'", "'right'"],
+            "description": "The horizontal position of the quotes carousel on the background image.",
+            "default": "'left'"
+        }
+    }
+}

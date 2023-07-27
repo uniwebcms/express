@@ -1,0 +1,26 @@
+---
+sidebar_position: 7
+sidebar_label: Map
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import JSFormViewer from '../src/components/JSViewer.js';
+import Options from "@site/static/schemas/map/options.json";
+import Gallery from '../src/components/Gallery.js';
+
+# Map
+
+A components that can render a google map with optional markers.
+
+<Gallery images={['/img/map/outcome.png']} sizes={[[1224, 602]]} />
+
+### Options
+<JSFormViewer schema={ Options } />
+
+#### Option example
+```json
+center: { lat: 45.4334773, lng: -75.6969506 },
+zoom: 12,
+height: '800px',
+widht: '1200px'
+```

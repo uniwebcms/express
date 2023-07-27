@@ -1,11 +1,5 @@
 {
     "title": "options",
     "type": "object",
-    "properties": {
-        "title": {
-            "type": "string",
-            "description": "The Title of the details block.",
-            "default": "Frequently asked questions"
-        }
-    }
+    "properties": {}
 }

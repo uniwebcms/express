@@ -21,7 +21,7 @@
         "gradient": {
             "type": "boolean",
             "description": "To control if enable the effect gradient to the background image.",
-            "default": false
+            "default": "false"
         }
     }
 }

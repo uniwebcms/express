@@ -4,11 +4,6 @@
             "title": "List profile",
             "type": "object",
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "The title of the List.",
-                    "default": "\"\""
-                },
                 "filter": {
                     "type": "boolean",
                     "description": "Indicate show filters or not.",
@@ -30,11 +25,6 @@
             "title": "Profile assets",
             "type": "object",
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "The title of the List.",
-                    "default": "\"\""
-                },
                 "filter": {
                     "type": "boolean",
                     "description": "Indicate show filters or not.",
@@ -55,23 +45,12 @@
         {
             "title": "Docufolio section",
             "type": "object",
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "The title of the List.",
-                    "default": "\"\""
-                }
-            }
+            "properties": {}
         },
         {
             "title": "Linked Profiles",
             "type": "object",
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "The title of the List.",
-                    "default": "\"\""
-                },
                 "filter": {
                     "type": "boolean",
                     "description": "Indicate show filters or not.",
