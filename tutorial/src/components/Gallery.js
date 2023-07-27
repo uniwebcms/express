@@ -3,6 +3,11 @@ import { Gallery, Item } from 'react-photoswipe-gallery';
 import 'photoswipe/dist/photoswipe.css';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+/**
+ * Gallery of component preview images.
+ * @param {*} props
+ * @returns
+ */
 export default function (props) {
     const { images = [], sizes = [] } = props;
 
