@@ -4,8 +4,7 @@
  */
 
 import React from 'react';
-import { twJoin } from '@uniwebcms/module-sdk';
-import { website } from '../core';
+import { website, twJoin } from '@uniwebcms/module-sdk';
 import PopoverMenu from './PopoverMenu';
 import { MdLanguage } from 'react-icons/md';
 

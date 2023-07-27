@@ -3,8 +3,7 @@
  * @module Container
  */
 import React from 'react';
-import { twMerge, Image } from '@uniwebcms/module-sdk';
-import { website } from '../core';
+import { website, twMerge, Image } from '@uniwebcms/module-sdk';
 
 /**
  * Define a wrapper that centers child elements with responsive max-width
