@@ -4,8 +4,16 @@ import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 export default function Map(props) {
     const {
         website,
-        extra: { height = '600px', width = '100%', center, zoom = 8, markerPositions = [] }
+        block,
+        extra: { markerPositions = [] }
     } = props;
+
+    const {
+        center = { lat: 45.424721, lng: -75.695 },
+        height = '600px',
+        width = '100%',
+        zoom = 8
+    } = block.getBlockProperties();
 
     const apiKey = website.getMapAPIKey();
 

@@ -45,8 +45,6 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
     if (contentPosition) {
         const horizontalPosition = contentPosition.split('-')[1];
 
-        console.log('horizontalPosition', horizontalPosition);
-
         switch (horizontalPosition) {
             case 'left':
                 linkJustifyPosition = 'start';

@@ -98,7 +98,7 @@ const NavbarMenu = ({ label, route, child_items }) => {
 export default function Navbar(props) {
     const {
         block,
-        block: { theme, params },
+        block: { theme },
         page,
         website
     } = props;
@@ -106,7 +106,7 @@ export default function Navbar(props) {
     const route = page.getRoute();
     const activeRoute = page.activeRoute;
 
-    const { signIn = false, joinMenus = false, extraMenu = '' } = params;
+    const { signIn = false, joinMenus = false, extraMenu = '' } = block.getBlockProperties();
 
     const websiteProfile = website.getWebsiteProfile();
 

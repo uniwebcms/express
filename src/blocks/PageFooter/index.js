@@ -5,7 +5,7 @@ import { Link, twJoin } from '@uniwebcms/module-sdk';
 export default function PageFooter(props) {
     const {
         profile,
-        block: { theme, params },
+        block: { theme },
         website
     } = props;
 
@@ -22,7 +22,9 @@ export default function PageFooter(props) {
         fr: 'Tous droits réservés.'
     });
 
-    const copyright = params?.copyright || `© ${year} ${title}. ${reservedText}`;
+    const properties = props.block.getBlockProperties();
+
+    const copyright = properties?.copyright || `© ${year} ${title}. ${reservedText}`;
 
     return (
         <Container as='footer' className={twJoin('!py-10', theme)}>

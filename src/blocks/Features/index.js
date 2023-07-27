@@ -59,7 +59,7 @@ export default function Features(props) {
                                 {link ? (
                                     <dd className='mt-2.5 flex items-center space-x-2'>
                                         <Link
-                                            to={link.route}
+                                            to={link.href}
                                             className='text-base font-medium leading-7'>
                                             {link.label} <span aria-hidden='true'>→</span>
                                         </Link>
