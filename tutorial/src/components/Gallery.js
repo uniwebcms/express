@@ -5,7 +5,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 /**
  * Gallery of component preview images.
- * @param {*} props
+ * @param {Array} images - images paths
+ * @param {Array} sizes - images sizes
  * @returns
  */
 export default function (props) {
