@@ -12,9 +12,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         onBrokenLinks: 'warn',
         onBrokenMarkdownLinks: 'warn',
         favicon: 'img/favicon.png',
-        // organizationName: 'uniwebcms',
-        // projectName: 'express',
-        // trailingSlash: true,
         presets: [
             [
                 '@docusaurus/preset-classic',
