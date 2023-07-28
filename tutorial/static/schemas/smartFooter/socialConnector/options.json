@@ -1,0 +1,16 @@
+{
+    "title": "options",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "The title of social media links.",
+            "default": "''"
+        },
+        "section": {
+            "type": "string",
+            "description": "The section that contains social media links.",
+            "default": "social_media_links"
+        }
+    }
+}
