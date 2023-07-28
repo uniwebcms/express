@@ -22,7 +22,7 @@ export default function Plain(props) {
     const {
         profile,
         website,
-        block: { params, theme },
+        block: { theme },
         extra: { as = 'footer' }
     } = props;
 
@@ -34,7 +34,8 @@ export default function Plain(props) {
         fr: 'Tous droits réservés.'
     });
 
-    const copyright = params?.copyright || `© ${year} ${title}. ${reservedText}`;
+    const properties = props.block.getBlockProperties();
+    const copyright = properties?.copyright || `© ${year} ${title}. ${reservedText}`;
 
     const pages = website.getPageHierarchy({
         nested: false,

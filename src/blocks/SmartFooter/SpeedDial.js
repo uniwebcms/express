@@ -96,11 +96,11 @@ export default function SpeedDial(props) {
     const {
         website,
         profile,
-        block: { params, theme },
+        block,
         extra: { as = 'footer' }
     } = props;
 
-    const { maxCol = 4, ...properties } = params;
+    const { maxCol = 4, ...properties } = block.getBlockProperties();
 
     const pages = website.getPageHierarchy({
         nested: true,
@@ -152,6 +152,7 @@ export default function SpeedDial(props) {
         ];
     } else {
         // show all related pages
+        console.log('speedDial', relatedPages);
         pageCols = relatedPages.slice(0, maxCol);
     }
 
@@ -203,5 +204,5 @@ export default function SpeedDial(props) {
         </Container>
     );
 
-    return <div className={twJoin(theme, as === 'footer' && 'mt-32')}>{markup}</div>;
+    return <div className={twJoin(block.theme, as === 'footer' && 'mt-32')}>{markup}</div>;
 }
