@@ -5,16 +5,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (
     module.exports = {
-        title: 'Express Documentation',
-        tagline: 'Tutorial of Uniwebcms express',
+        title: 'Uniweb Express',
+        tagline: 'Tutorial of Uniweb express',
         url: 'https://uniwebcms.github.io',
         baseUrl: '/express/',
         onBrokenLinks: 'warn',
         onBrokenMarkdownLinks: 'warn',
         favicon: 'img/favicon.png',
-        organizationName: 'uniwebcms',
-        projectName: 'express',
-        trailingSlash: true,
+        // organizationName: 'uniwebcms',
+        // projectName: 'express',
+        // trailingSlash: true,
         presets: [
             [
                 '@docusaurus/preset-classic',
@@ -26,7 +26,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 })
             ]
         ],
-
         themeConfig:
             /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
             ({
@@ -58,7 +57,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                     },
                     links: [
                         {
-                            label: 'Home',
+                            label: 'Express',
                             to: '/'
                         },
                         {
