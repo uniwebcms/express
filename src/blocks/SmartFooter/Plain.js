@@ -63,7 +63,7 @@ export default function Plain(props) {
     });
 
     const markup = (
-        <Container as={as} className='!pt-6 !pb-8'>
+        <Container as={as} className='!pt-8 !pb-10'>
             <h3 className='text-sm'>{copyright}</h3>
             {nonRelatedPages.length ? (
                 <div className='flex flex-wrap mt-5'>

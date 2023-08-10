@@ -2,18 +2,17 @@ import React from 'react';
 import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 
 export default function Map(props) {
-    const {
-        website,
-        block,
-        extra: { markerPositions = [] }
-    } = props;
+    const { website, block, extra } = props;
 
-    const {
-        center = { lat: 45.424721, lng: -75.695 },
-        height = '600px',
-        width = '100%',
-        zoom = 8
-    } = block.getBlockProperties();
+    const { markerPositions = [] } = extra;
+
+    const blockProperties = block.getBlockProperties();
+
+    const center = blockProperties.center || extra.center || { lat: 45.424721, lng: -75.695 };
+    const height = blockProperties.height || extra.height || '600px';
+    const width = blockProperties.width || extra.width || '100%';
+    const zoom = blockProperties.zoom || extra.zoom || 8;
+    const style = blockProperties.style || extra.style || {};
 
     const apiKey = website.getMapAPIKey();
 
@@ -24,7 +23,7 @@ export default function Map(props) {
 
     if (isLoaded) {
         return (
-            <GoogleMap mapContainerStyle={{ height, width }} center={center} zoom={zoom}>
+            <GoogleMap mapContainerStyle={{ height, width, ...style }} center={center} zoom={zoom}>
                 {markerPositions.map((position, index) => {
                     let { lat, lng } = position;
 

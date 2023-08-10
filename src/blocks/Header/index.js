@@ -4,12 +4,12 @@ import { Carousel as FbCarousel } from 'flowbite-react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import './index.css';
 
-const CarouselItem = ({ item, profile, setItemHovered }) => {
-    const { title, subtitle, images, links, banner, properties } = item;
+const CarouselItem = ({ item, profile, setItemHovered, singleItem = false, mainBanner }) => {
+    let { title, subtitle, images, links, banner, properties } = item;
 
     const { contentPosition = 'mid-center', gradient = false } = properties;
 
-    const bg = banner || images[0];
+    const bg = banner || images[0] || mainBanner;
 
     let background = null,
         content = null;
@@ -58,16 +58,38 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
         }
     }
 
+    if (subtitle) {
+        if (!Array.isArray(subtitle)) subtitle = [subtitle];
+    }
+
     content = (
-        <div className='z-10 space-y-6'>
+        <div
+            className='z-10 space-y-6'
+            onMouseEnter={() => {
+                if (setItemHovered) setItemHovered(true);
+            }}
+            onMouseLeave={() => {
+                if (setItemHovered) setItemHovered(false);
+            }}>
             <div
-                className='space-y-2 max-w-3xl'
+                className='space-y-5 max-w-3xl'
                 style={{
                     textShadow:
-                        '3px 0px 7px var(--text-shadow), -3px 0px 7px var(--text-shadow), 0px 4px 7px var(--text-shadow)'
+                        '1px 0px 3px var(--text-shadow), -1px 0px 3px var(--text-shadow), 0px 2px 3px var(--text-shadow)'
                 }}>
                 <h3 className='lg:text-5xl sm:text-4xl text-2xl font-semibold'>{title}</h3>
-                <p className='lg:text-2xl sm:text-xl text-base'>{subtitle}</p>
+                {subtitle?.length ? (
+                    <div className={twJoin('space-y-2', singleItem ? '' : 'line-clamp-6')}>
+                        {subtitle.map((item, index) => (
+                            <p
+                                key={index}
+                                className='lg:text-2xl sm:text-xl text-base leading-5 font-medium'
+                                title={item}>
+                                {item}
+                            </p>
+                        ))}
+                    </div>
+                ) : null}
             </div>
             {links.length ? (
                 <div
@@ -79,13 +101,7 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
                         <a
                             key={index}
                             href={link.href}
-                            className='px-4 py-2 border border-gray-300 bg-gray-200 hover:bg-gray-100 rounded-xl'
-                            onMouseEnter={() => {
-                                if (setItemHovered) setItemHovered(true);
-                            }}
-                            onMouseLeave={() => {
-                                if (setItemHovered) setItemHovered(false);
-                            }}>
+                            className='px-4 py-2 border border-gray-300 bg-gray-200 hover:bg-gray-100 rounded-xl'>
                             {link.label}
                         </a>
                     ))}
@@ -97,8 +113,9 @@ const CarouselItem = ({ item, profile, setItemHovered }) => {
     return (
         <div
             className={twJoin(
-                'flex relative w-full h-[480px]',
+                'flex relative w-full',
                 positions[contentPosition],
+                singleItem ? 'min-h-[480px]' : 'h-[480px]',
                 'py-20 xl:px-28 lg:px-20 md:px-16 px-8',
                 gradient &&
                     'after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:z-0 after:to-[var(--gradient)]'
@@ -126,7 +143,7 @@ const CarouselControl = ({ side }) => {
     );
 };
 
-const Carousel = ({ items, page }) => {
+const Carousel = ({ items, page, mainBanner }) => {
     const pageProfile = page.getPageProfile();
 
     const [itemHovered, setItemHovered] = useState(false);
@@ -143,6 +160,7 @@ const Carousel = ({ items, page }) => {
                     item={item}
                     profile={pageProfile}
                     setItemHovered={setItemHovered}
+                    mainBanner={mainBanner}
                 />
             ))}
         </FbCarousel>
@@ -152,6 +170,7 @@ const Carousel = ({ items, page }) => {
 export default function Header(props) {
     const { block, page } = props;
 
+    const mainBanner = block.main.banner;
     let items = block.getBlockItems();
     let markup = null;
 
@@ -166,9 +185,17 @@ export default function Header(props) {
     }
 
     if (items.length > 1) {
-        markup = <Carousel items={items} page={page} />;
+        markup = <Carousel items={items} page={page} mainBanner={mainBanner} />;
     } else if (items.length === 1) {
-        markup = <CarouselItem item={items[0]} profile={page.getPageProfile()} />;
+        console.log(items);
+        markup = (
+            <CarouselItem
+                item={items[0]}
+                profile={page.getPageProfile()}
+                mainBanner={mainBanner}
+                singleItem={true}
+            />
+        );
     }
 
     return <div className={block.theme}>{markup}</div>;
