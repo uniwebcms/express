@@ -152,7 +152,6 @@ export default function SpeedDial(props) {
         ];
     } else {
         // show all related pages
-        console.log('speedDial', relatedPages);
         pageCols = relatedPages.slice(0, maxCol);
     }
 

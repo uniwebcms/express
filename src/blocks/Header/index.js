@@ -5,7 +5,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import './index.css';
 
 const CarouselItem = ({ item, profile, setItemHovered, singleItem = false, mainBanner }) => {
-    let { title, subtitle, images, links, banner, properties } = item;
+    let { title, subtitle, images, links, banner, properties = {} } = item;
 
     const { contentPosition = 'mid-center', gradient = false } = properties;
 
@@ -187,7 +187,6 @@ export default function Header(props) {
     if (items.length > 1) {
         markup = <Carousel items={items} page={page} mainBanner={mainBanner} />;
     } else if (items.length === 1) {
-        console.log(items);
         markup = (
             <CarouselItem
                 item={items[0]}

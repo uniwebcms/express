@@ -53,10 +53,12 @@ export default function SocialConnector(props) {
         extra: { as = 'footer' }
     } = props;
 
+    const { newsletterTitle } = block.getBlockProperties();
+
     const markup = (
         <Container as={as} className='!py-8 pb-10 px-12 md:px-8 lx:px-12 xl:px-24 2xl:px-36'>
             <div className='block md:flex items-start justify-between space-y-6 md:space-y-0'>
-                <Newsletter buttonColor='var(--highlight)' />
+                <Newsletter buttonBgColor='var(--highlight)' title={newsletterTitle} />
                 <ExtraContent properties={block.getBlockProperties()} profile={profile} />
             </div>
         </Container>

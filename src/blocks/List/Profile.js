@@ -5,7 +5,7 @@
 
 import React from 'react';
 import Container from '../../basic/Container';
-import { Link, useLinkedProfileFilterState, Image } from '@uniwebcms/module-sdk';
+import { Link, useLinkedProfileFilterState, Image, twJoin } from '@uniwebcms/module-sdk';
 import Sorter from '../../basic/Sorter';
 import Filter from '../../basic/Filter';
 
@@ -51,19 +51,29 @@ const Cards = ({ mainProfile, profileType, section, properties, renderCard, clas
 
     return (
         <div>
-            <h2 className='text-3xl font-bold leading-10 tracking-tight mb-2'>{title}</h2>
+            {title ? (
+                <h2
+                    className={twJoin(
+                        'text-3xl font-bold leading-10 tracking-tight',
+                        showFilter || hasSorting ? 'mb-2' : ' mb-14'
+                    )}>
+                    {title}
+                </h2>
+            ) : null}
             <div className='mt-4 sm:mt-8 space-y-14'>
-                <div className='flex justify-end'>
-                    <div className='flex space-x-1 items-center'>
-                        {showFilter ? (
-                            <Filter filter={filter} setFilter={setFilter}>
-                                <Filter.Search />
-                                <Filter.Menu />
-                            </Filter>
-                        ) : null}
-                        {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
+                {showFilter || hasSorting ? (
+                    <div className='flex justify-end'>
+                        <div className='flex space-x-1 items-center'>
+                            {showFilter ? (
+                                <Filter filter={filter} setFilter={setFilter}>
+                                    <Filter.Search />
+                                    <Filter.Menu />
+                                </Filter>
+                            ) : null}
+                            {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
+                        </div>
                     </div>
-                </div>
+                ) : null}
                 <ul role='list' className={className}>
                     {filtered.map((profile) =>
                         renderCard ? (
