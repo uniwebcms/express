@@ -21,6 +21,7 @@ import Quotes from './blocks/Quotes';
 import Details from './blocks/Details';
 import Features from './blocks/Features';
 import Section from './blocks/Section';
+import ProfileView from './blocks/ProfileView';
 
 /// extended block
 import SmartFooter from './blocks/SmartFooter';
@@ -53,7 +54,8 @@ export {
     Quotes,
     Details,
     Features,
-    Section
+    Section,
+    ProfileView
 };
 
 export { SmartFooter, SpeedDialFooter, SocialConnectorFooter, PlainFooter, LogoClouds };

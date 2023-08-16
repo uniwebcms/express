@@ -1,6 +1,6 @@
 {
     "name": "@uniwebcms/express",
-    "version": "2.2.6",
+    "version": "2.3.0",
     "description": "",
     "main": "dist/bundle.js",
     "files": [
@@ -48,7 +48,8 @@
         "@uniwebcms/module-sdk": "^1.9.1",
         "react-icons": "^4.6.0",
         "react-spinners": "^0.13.8",
-        "flowbite-react": "^0.4.9"
+        "flowbite-react": "^0.4.9",
+        "react-grid-layout": "^1.2.0"
     },
     "peerDependencies": {
         "react": "^18.2.0",
