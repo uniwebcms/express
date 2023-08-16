@@ -75,7 +75,7 @@ export default function (props) {
                     {title}
                 </h2>
             ) : null}
-            <div className='mt-4 sm:mt-8 space-y-14'>
+            <div className='mt-4 sm:mt-8 space-y-8'>
                 {showFilter || hasSorting ? (
                     <div className='flex justify-end'>
                         <div className='flex space-x-1 items-center'>

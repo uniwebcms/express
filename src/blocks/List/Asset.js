@@ -143,7 +143,7 @@ export default function ({
     return (
         <Container as={as} className={className}>
             <h2 className='text-3xl font-bold leading-10 tracking-tight mb-2'>{title}</h2>
-            <div className='mt-4 sm:mt-8 space-y-14'>
+            <div className='mt-4 sm:mt-8 space-y-8'>
                 {hasSorting || showSearcher ? (
                     <div className='flex justify-end items-center space-x-2'>
                         {showSearcher ? <Searcher {...{ searchText, setSearchText }} /> : null}
