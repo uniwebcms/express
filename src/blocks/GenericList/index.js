@@ -21,7 +21,7 @@ const Item = ({ item, properties }) => {
     );
 };
 
-export default function (props) {
+export default function GenericList(props) {
     const {
         block,
         extra: { as = 'section', className = 'divide-y', renderCard = undefined }

@@ -15,8 +15,11 @@ import Header from './blocks/Header';
 import Articles from './blocks/Articles';
 import Spotlight from './blocks/Spotlight';
 import Map from './blocks/Map';
-import List from './blocks/List';
-import Form from './blocks/Form';
+import AssetList from './blocks/AssetList';
+import ProfileList from './blocks/ProfileList';
+import FeatureList from './blocks/FeatureList';
+import GenericList from './blocks/GenericList';
+import NewsletterForm from './blocks/NewsletterForm';
 import Quotes from './blocks/Quotes';
 import Details from './blocks/Details';
 import Features from './blocks/Features';
@@ -49,8 +52,11 @@ export {
     Articles,
     Spotlight,
     Map,
-    List,
-    Form,
+    AssetList,
+    ProfileList,
+    FeatureList,
+    GenericList,
+    NewsletterForm,
     Quotes,
     Details,
     Features,

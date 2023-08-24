@@ -123,7 +123,7 @@ const Sorter = ({ sort, setSort }) => {
  * @prop {Block} block - The target block.
  * @returns {function} A react component.
  */
-export default function ({
+export default function AssetList({
     profile,
     block,
     extra: { as = 'section', className = '', renderCard = undefined }

@@ -1,11 +1,6 @@
-/**
- * Render a page with a media header and filterable profile cards.
- * @module blocks/List/ProfileList
- */
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Profile, Link, Image, twJoin } from '@uniwebcms/module-sdk';
 import Container from '../../basic/Container';
-import { Link, useLinkedProfileFilterState, Image, twJoin } from '@uniwebcms/module-sdk';
 import Sorter from '../../basic/Sorter';
 import Filter from '../../basic/Filter';
 
@@ -35,22 +30,42 @@ const Card = ({ profile, properties = {} }) => {
     );
 };
 
-const Cards = ({ mainProfile, profileType, section, properties, renderCard, className }) => {
+export default function FeatureList(props) {
+    const {
+        block,
+        extra: {
+            as = 'section',
+            className = 'grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3',
+            renderCard = undefined
+        }
+    } = props;
+
+    const { dataSource, theme } = block;
+
     const {
         title = '',
         filter: showFilter = true,
         sorting: hasSorting = true,
         card: cardProperties = {}
-    } = properties;
+    } = block.getBlockProperties();
 
-    const [pt, vt = 'profile'] = profileType.split('/');
+    const [profiles, setProfiles] = useState([]);
+    const [filter, setFilter] = useState({ searchText: '', _sort: '' });
 
-    const [filter, setFilter] = useLinkedProfileFilterState(mainProfile, `${pt}/${vt}`, section);
+    useEffect(() => {
+        if (dataSource && dataSource.contentType === 'list' && dataSource.contentId) {
+            Profile.getProfilesInList(dataSource.contentId).then((res) => {
+                setProfiles(res);
+            });
+        }
+    }, [dataSource]);
 
-    const { filtered } = filter;
+    const filtered = dataSource.getFilteredProfiles(profiles, null, {
+        searchText: filter.searchText
+    });
 
     return (
-        <div>
+        <Container as={as} className={twJoin('', theme)}>
             {title ? (
                 <h2
                     className={twJoin(
@@ -65,12 +80,13 @@ const Cards = ({ mainProfile, profileType, section, properties, renderCard, clas
                     <div className='flex justify-end'>
                         <div className='flex space-x-1 items-center'>
                             {showFilter ? (
-                                <Filter filter={filter} setFilter={setFilter}>
+                                <Filter filter={{ selection: filter }} setFilter={setFilter}>
                                     <Filter.Search />
-                                    <Filter.Menu />
                                 </Filter>
                             ) : null}
-                            {hasSorting ? <Sorter filter={filter} setFilter={setFilter} /> : null}
+                            {hasSorting ? (
+                                <Sorter filter={{ selection: filter }} setFilter={setFilter} />
+                            ) : null}
                         </div>
                     </div>
                 ) : null}
@@ -84,51 +100,6 @@ const Cards = ({ mainProfile, profileType, section, properties, renderCard, clas
                     )}
                 </ul>
             </div>
-        </div>
+        </Container>
     );
-};
-
-/**
- * Render a page with a media header and filterable profile cards.
- *
- * @component ProfileList
- * @prop {Profile} profile - A data profile.
- * @prop {Block} block - The template properties for the component.
- * @prop {Page} page - The page that contains the block.
- * @prop {Website} website - The website that contains the page.
- * @returns {function} A react component.
- */
-export default function (props) {
-    const {
-        profile,
-        block,
-        extra: {
-            as = 'section',
-            className = 'grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3',
-            renderCard = undefined
-        }
-    } = props;
-
-    let { inputType: profileType, input: section } = block;
-
-    if (profileType && !section) {
-        [section] = profile.findRelationField(profileType);
-    }
-
-    if (profileType && section) {
-        return (
-            <Container as={as} className={block.theme}>
-                <Cards
-                    mainProfile={profile}
-                    profileType={profileType}
-                    section={section}
-                    properties={block.getBlockProperties()}
-                    renderCard={renderCard}
-                    className={className}
-                />
-            </Container>
-        );
-    }
-
-    return null;
 }
