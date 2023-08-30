@@ -1,0 +1,8 @@
+title: Section
+description: A component renders content from a Docufolio editor as-is.
+
+elements:
+  _raw: 
+    en: This category renders content from the Webpages editor as-is.
+    fr: Cette catégorie affiche le contenu de l'éditeur de pages tel quel.
+

@@ -1,0 +1,58 @@
+title: Map
+description: A component renders a map from Google Maps with markers.
+
+elements:
+  _raw: 
+    en: This category does not require any content from the Webpages editor.
+    fr: Cette catégorie n'a pas besoin de contenu de l'éditeur de pages.
+
+properties:
+  center_latitude:
+    label:
+      en: Center Latitude
+      fr: Latitude du centre
+    type: number
+    default: 45.424721
+    description: The latitude of the center of the map.
+    min: -90
+    max: 90
+  center_longitude:
+    label:
+      en: Center Longitude
+      fr: Longitude du centre
+    type: number
+    default: -75.695
+    description: The longitude of the center of the map.
+    min: -180
+    max: 180
+  height:
+    label:
+      en: Height
+      fr: Hauteur
+    type: string
+    default: 600px
+    description: The height of the map.
+  width:
+    label:
+      en: Width
+      fr: Largeur
+    type: string
+    default: 100%
+    description: The width of the map.
+  zoom:
+    label:
+      en: Zoom
+      fr: Zoom
+    type: number
+    default: 8
+    description: The zoom level of the map.
+    min: 1
+    max: 20
+  css_style:
+    label:
+      en: CSS style
+      fr: Style CSS
+    type: object
+    default: '{}'
+    description: The css style of the map.
+    advanced: true
