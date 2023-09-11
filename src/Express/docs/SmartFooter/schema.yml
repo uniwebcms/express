@@ -1,6 +1,0 @@
-title: SmartFooter
-description: A component renders wrapper for the footer elements.
-
-items:
-  separator: section
-  category: PlainFooter, SocialConnectFooter, SpeedDialFooter
