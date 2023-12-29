@@ -1,6 +1,6 @@
 {
     "name": "@uniwebcms/express",
-    "version": "2.4.0",
+    "version": "2.4.1",
     "description": "",
     "main": "dist/bundle.js",
     "files": [
@@ -45,7 +45,7 @@
         "@headlessui/react": "^1.7.3",
         "@popperjs/core": "^2.10.1",
         "@react-google-maps/api": "^2.18.1",
-        "@uniwebcms/module-sdk": "^1.9.1",
+        "@uniwebcms/module-sdk": "^1.15.3",
         "react-icons": "^4.6.0",
         "react-spinners": "^0.13.8",
         "flowbite-react": "^0.4.9",
